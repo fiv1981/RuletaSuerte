@@ -157,6 +157,7 @@ const wheelModal = document.getElementById('wheelModal');
 const keyboardModal = document.getElementById('keyboardModal');
 const keyboardGrid = document.getElementById('keyboardGrid');
 const resultSplash = document.getElementById('resultSplash');
+const resultSplashShape = document.getElementById('resultSplashShape');
 const resultSplashText = document.getElementById('resultSplashText');
 let audioCtx;
 
@@ -201,19 +202,34 @@ function beep({ frequency = 440, duration = 0.08, type = 'sine', gain = 0.03, sl
   osc.stop(now + duration);
 }
 
-function playClick() { beep({ frequency: 520, duration: 0.04, type: 'square', gain: 0.02 }); }
-function playSpinStart() { beep({ frequency: 180, slideTo: 420, duration: 0.24, type: 'sawtooth', gain: 0.03 }); }
-function playResultBoom() { beep({ frequency: 220, slideTo: 120, duration: 0.22, type: 'triangle', gain: 0.06 }); }
-function playSuccess() { beep({ frequency: 660, duration: 0.08, type: 'sine', gain: 0.03, slideTo: 880 }); setTimeout(() => beep({ frequency: 880, duration: 0.12, type: 'sine', gain: 0.035 }), 90); }
-function playError() { beep({ frequency: 240, duration: 0.12, type: 'square', gain: 0.03, slideTo: 170 }); }
+function playClick() {
+  beep({ frequency: 780, duration: 0.025, type: 'triangle', gain: 0.014, slideTo: 640 });
+}
+function playSpinStart() {
+  beep({ frequency: 220, slideTo: 540, duration: 0.18, type: 'triangle', gain: 0.02 });
+  setTimeout(() => beep({ frequency: 360, slideTo: 700, duration: 0.14, type: 'triangle', gain: 0.015 }), 70);
+}
+function playResultBoom() {
+  beep({ frequency: 150, slideTo: 90, duration: 0.16, type: 'sine', gain: 0.05 });
+  setTimeout(() => beep({ frequency: 510, slideTo: 340, duration: 0.14, type: 'triangle', gain: 0.03 }), 60);
+}
+function playSuccess() {
+  beep({ frequency: 740, duration: 0.05, type: 'triangle', gain: 0.02, slideTo: 920 });
+  setTimeout(() => beep({ frequency: 980, duration: 0.08, type: 'sine', gain: 0.025, slideTo: 1240 }), 75);
+}
+function playError() {
+  beep({ frequency: 280, duration: 0.08, type: 'triangle', gain: 0.025, slideTo: 210 });
+  setTimeout(() => beep({ frequency: 220, duration: 0.09, type: 'triangle', gain: 0.02, slideTo: 170 }), 70);
+}
 
-function showResultSplash(text) {
+function showResultSplash(text, seg) {
   resultSplashText.textContent = text;
+  resultSplashShape.classList.remove('is-bankrupt', 'is-lose');
+  resultSplashShape.style.background = `linear-gradient(135deg, ${seg.color}, rgba(255,255,255,0.26))`;
+  if (text === 'QUIEBRA') resultSplashShape.classList.add('is-bankrupt');
+  if (text === 'PIERDE TURNO') resultSplashShape.classList.add('is-lose');
   resultSplash.classList.add('visible');
-  resultSplashText.classList.remove('result-splash__text--bankrupt', 'result-splash__text--lose');
-  if (text === 'QUIEBRA') resultSplashText.classList.add('result-splash__text--bankrupt');
-  if (text === 'PIERDE TURNO') resultSplashText.classList.add('result-splash__text--lose');
-  setTimeout(() => resultSplash.classList.remove('visible'), 620);
+  setTimeout(() => resultSplash.classList.remove('visible'), 950);
 }
 
 function pickPuzzle() {
@@ -363,7 +379,7 @@ function resolveSpin() {
     state.wheelVisible = false;
     resultLabel.textContent = '¡Quiebra!';
     resultHint.textContent = 'Pierdes los puntos y puedes volver a girar.';
-    showResultSplash('QUIEBRA');
+    showResultSplash('QUIEBRA', seg);
     playResultBoom();
   } else if (seg.value === 'lose') {
     state.lives = Math.max(0, state.lives - 1);
@@ -371,19 +387,19 @@ function resolveSpin() {
     state.wheelVisible = false;
     resultLabel.textContent = 'Pierdes turno';
     resultHint.textContent = 'Has perdido una vida. Vuelve a girar.';
-    showResultSplash('PIERDE TURNO');
+    showResultSplash('PIERDE TURNO', seg);
     playResultBoom();
   } else {
     state.currentPrize = seg.value;
     state.wheelVisible = false;
     resultLabel.textContent = `${seg.label} por acierto`;
     resultHint.textContent = 'Elige una letra en el teclado del juego.';
-    showResultSplash(String(seg.label));
+    showResultSplash(String(seg.label), seg);
     playResultBoom();
     setTimeout(() => {
       state.keyboardVisible = true;
       updateUI();
-    }, 420);
+    }, 240);
   }
 
   state.pendingSegment = null;
