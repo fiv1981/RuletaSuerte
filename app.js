@@ -206,37 +206,44 @@ function beep({ frequency = 440, duration = 0.08, type = 'sine', gain = 0.03, sl
 function playClick() {
   beep({ frequency: 780, duration: 0.025, type: 'triangle', gain: 0.014, slideTo: 640 });
 }
-function startSpinSound() {
+function startSpinSound(duration = 3.4) {
   const ctx = getAudio();
   const now = ctx.currentTime;
   const osc = ctx.createOscillator();
-  const lfo = ctx.createOscillator();
-  const lfoGain = ctx.createGain();
+  const tremolo = ctx.createOscillator();
+  const tremoloGain = ctx.createGain();
+  const filter = ctx.createBiquadFilter();
   const amp = ctx.createGain();
-  osc.type = 'sawtooth';
-  osc.frequency.setValueAtTime(120, now);
-  osc.frequency.linearRampToValueAtTime(70, now + 3.6);
-  lfo.type = 'triangle';
-  lfo.frequency.setValueAtTime(14, now);
-  lfoGain.gain.setValueAtTime(18, now);
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(520, now);
+  osc.frequency.exponentialRampToValueAtTime(210, now + duration);
+  tremolo.type = 'sine';
+  tremolo.frequency.setValueAtTime(22, now);
+  tremolo.frequency.exponentialRampToValueAtTime(6, now + duration);
+  tremoloGain.gain.setValueAtTime(140, now);
+  tremoloGain.gain.exponentialRampToValueAtTime(18, now + duration);
+  filter.type = 'lowpass';
+  filter.frequency.setValueAtTime(1800, now);
+  filter.frequency.exponentialRampToValueAtTime(620, now + duration);
   amp.gain.setValueAtTime(0.0001, now);
-  amp.gain.linearRampToValueAtTime(0.018, now + 0.08);
-  lfo.connect(lfoGain).connect(osc.frequency);
-  osc.connect(amp).connect(ctx.destination);
+  amp.gain.linearRampToValueAtTime(0.024, now + 0.04);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  tremolo.connect(tremoloGain).connect(osc.frequency);
+  osc.connect(filter).connect(amp).connect(ctx.destination);
   osc.start(now);
-  lfo.start(now);
-  spinNodes = { osc, lfo, amp, ctx };
+  tremolo.start(now);
+  spinNodes = { osc, tremolo, amp, ctx, stopAt: now + duration };
 }
 
 function stopSpinSound() {
   if (!spinNodes) return;
-  const { osc, lfo, amp, ctx } = spinNodes;
+  const { osc, tremolo, amp, ctx } = spinNodes;
   const now = ctx.currentTime;
   amp.gain.cancelScheduledValues(now);
-  amp.gain.setValueAtTime(amp.gain.value || 0.018, now);
-  amp.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
-  osc.stop(now + 0.14);
-  lfo.stop(now + 0.14);
+  amp.gain.setValueAtTime(Math.max(amp.gain.value, 0.0001), now);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+  osc.stop(now + 0.1);
+  tremolo.stop(now + 0.1);
   spinNodes = null;
 }
 function playResultBoom() {
@@ -370,7 +377,8 @@ function openWheel() {
 
 function spinWheel() {
   if (state.spinning) return;
-  startSpinSound();
+  const duration = 3400;
+  startSpinSound(duration / 1000);
   state.spinning = true;
   const slice = (Math.PI * 2) / segments.length;
   const winningIndex = Math.floor(Math.random() * segments.length);
@@ -383,7 +391,6 @@ function spinWheel() {
   const finalAngle = state.angle + extraTurns + delta;
   state.pendingSegment = segments[winningIndex];
   const start = performance.now();
-  const duration = 3400;
 
   function frame(now) {
     const t = Math.min(1, (now - start) / duration);

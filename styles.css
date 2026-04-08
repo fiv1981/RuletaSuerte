@@ -397,15 +397,17 @@ canvas {
 }
 
 .result-splash__text {
-  width: 100%;
+  width: 76%;
+  max-width: 76%;
   text-align: center;
   line-height: .92;
   color: white;
-  font-size: clamp(1.6rem, 6.2vw, 4.8rem);
+  font-size: clamp(1.15rem, 4.4vw, 3.6rem);
   font-weight: 900;
-  letter-spacing: .02em;
+  letter-spacing: 0;
   text-wrap: balance;
   overflow-wrap: anywhere;
+  word-break: break-word;
   text-shadow: 0 6px 18px rgba(0,0,0,.26);
 }
 
@@ -424,6 +426,14 @@ canvas {
 
 .result-splash__shape.is-lose {
   background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+@media (orientation: landscape) {
+  .result-splash__text {
+    width: 68%;
+    max-width: 68%;
+    font-size: clamp(1rem, 3.4vw, 2.8rem);
+  }
 }
 
 @keyframes splash-pop {
