@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>RuletaSuerte</title>
+  <title>Ruleta de la Suerte</title>
   <meta name="theme-color" content="#0f172a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="RuletaSuerte" />
+  <meta name="apple-mobile-web-app-title" content="Ruleta de la Suerte" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icon-512.png" />
@@ -20,10 +20,9 @@
   <main class="app-shell">
     <header class="topbar glass">
       <div class="brand-wrap">
-        <img src="icon.svg" alt="RuletaSuerte" class="brand-icon" />
+        <img src="icon.svg" alt="Ruleta de la Suerte" class="brand-icon" />
         <div>
-          <p class="eyebrow">Juego tipo panel y ruleta</p>
-          <h1>RuletaSuerte</h1>
+          <h1>Ruleta de la Suerte</h1>
         </div>
       </div>
       <div class="top-actions">
@@ -43,13 +42,13 @@
       <section class="panel-stage glass">
         <div class="panel-head">
           <div id="phraseCategory" class="category-chip">Películas</div>
-          <div id="resultLabel" class="result-inline">Pulsa para girar</div>
+          <div id="resultLabel" class="result-inline">Pulsa Girar para comenzar</div>
         </div>
         <div id="phraseBoard" class="phrase-board"></div>
         <div class="panel-footer">
           <div>
             <p class="eyebrow">Estado</p>
-            <p id="resultHint" class="panel-hint">Consigue puntos, vocales o premios especiales.</p>
+            <p id="resultHint" class="panel-hint">Gira la ruleta, elige letra desde el teclado del juego y resuelve el panel.</p>
           </div>
           <div class="used-wrap">
             <p class="eyebrow">Usadas</p>
@@ -59,26 +58,35 @@
       </section>
 
       <section class="action-strip glass">
-        <div class="wheel-card">
-          <canvas id="wheel" width="420" height="420" aria-label="Ruleta"></canvas>
-          <button id="spinBtn" class="primary-btn">Girar</button>
-        </div>
-
-        <div class="control-card">
-          <div class="control-row">
-            <input id="letterInput" maxlength="1" placeholder="Letra" autocomplete="off" />
-            <button id="guessBtn" class="primary-btn">Probar</button>
-            <button id="solveBtn" class="ghost-btn">Resolver</button>
-          </div>
-          <div class="mini-rules">
-            <div class="rule-pill">💥 Quiebra</div>
-            <div class="rule-pill">⏭ Pierde turno</div>
-            <div class="rule-pill">🎯 Letras con premio</div>
-          </div>
+        <div class="control-card control-card--center">
+          <button id="spinBtn" class="primary-btn primary-btn--big">Girar ruleta</button>
+          <button id="solveBtn" class="ghost-btn">Resolver panel</button>
         </div>
       </section>
     </section>
   </main>
+
+  <div id="wheelModal" class="overlay">
+    <div class="overlay-card overlay-card--wheel glass">
+      <div class="overlay-head">
+        <h2>Ruleta</h2>
+        <button id="closeWheelBtn" class="ghost-btn">Cerrar</button>
+      </div>
+      <canvas id="wheel" width="420" height="420" aria-label="Ruleta"></canvas>
+      <div id="wheelPrize" class="wheel-prize">?</div>
+      <button id="wheelSpinBtn" class="primary-btn primary-btn--big">Girar</button>
+    </div>
+  </div>
+
+  <div id="keyboardModal" class="overlay">
+    <div class="overlay-card overlay-card--keyboard glass">
+      <div class="overlay-head">
+        <h2>Elige letra</h2>
+        <button id="closeKeyboardBtn" class="ghost-btn">Cerrar</button>
+      </div>
+      <div id="keyboardGrid" class="keyboard-grid"></div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

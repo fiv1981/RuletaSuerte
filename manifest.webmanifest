@@ -1,6 +1,6 @@
 {
-  "name": "RuletaSuerte",
-  "short_name": "RuletaSuerte",
+  "name": "Ruleta de la Suerte",
+  "short_name": "Ruleta",
   "description": "Juego tipo Ruleta de la Suerte para 1 jugador.",
   "lang": "es",
   "start_url": ".",
