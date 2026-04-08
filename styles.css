@@ -266,13 +266,13 @@ button {
 
 .top-reset-btn {
   min-height: 58px;
-  height: 58px;
+  height: auto;
   line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   align-self: stretch;
-  padding: 0 18px;
+  padding: 8px 18px;
   border: 0;
   border-radius: 16px;
   font-weight: 800;
@@ -423,7 +423,7 @@ canvas {
   .primary-btn,
   .top-reset-btn {
     min-height: 42px;
-    height: 42px;
+    height: auto;
     padding: 8px 10px;
     font-size: .88rem;
   }
