@@ -96,10 +96,13 @@ h1 {
 
 .stat-pill {
   min-width: 86px;
+  min-height: 58px;
   padding: 8px 12px;
   border-radius: 16px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
+  display: grid;
+  align-content: center;
 }
 
 .stat-pill__label {
@@ -257,6 +260,17 @@ button {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
+.top-reset-btn {
+  min-height: 58px;
+  padding: 8px 18px;
+  border: 0;
+  border-radius: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.22);
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -363,6 +377,7 @@ canvas {
 
   .stat-pill {
     min-width: 72px;
+    min-height: 46px;
     padding: 7px 10px;
   }
 
@@ -395,7 +410,8 @@ canvas {
 
   .primary-btn--big,
   .ghost-btn,
-  .primary-btn {
+  .primary-btn,
+  .top-reset-btn {
     min-height: 42px;
     padding: 8px 10px;
     font-size: .88rem;
