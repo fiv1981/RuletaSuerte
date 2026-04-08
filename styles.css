@@ -393,14 +393,29 @@ canvas {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.98), rgba(251, 113, 133, 0.98));
   box-shadow: 0 30px 70px rgba(0,0,0,.42);
   animation: splash-pop 1s ease-out forwards;
+  padding: 18%;
 }
 
 .result-splash__text {
+  width: 100%;
+  text-align: center;
+  line-height: .92;
   color: white;
-  font-size: clamp(2.6rem, 8vw, 6rem);
+  font-size: clamp(1.6rem, 6.2vw, 4.8rem);
   font-weight: 900;
-  letter-spacing: .04em;
+  letter-spacing: .02em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
   text-shadow: 0 6px 18px rgba(0,0,0,.26);
+}
+
+.result-splash__shape.is-bankrupt,
+.result-splash__shape.is-lose {
+  width: min(72vw, 520px);
+  aspect-ratio: auto;
+  min-height: 170px;
+  clip-path: inset(0 round 28px);
+  padding: 26px 34px;
 }
 
 .result-splash__shape.is-bankrupt {

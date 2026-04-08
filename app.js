@@ -160,6 +160,7 @@ const resultSplash = document.getElementById('resultSplash');
 const resultSplashShape = document.getElementById('resultSplashShape');
 const resultSplashText = document.getElementById('resultSplashText');
 let audioCtx;
+let spinNodes = null;
 
 function chunkPhrase(phrase, maxCharsPerLine = 16) {
   const words = phrase.split(' ');
@@ -205,9 +206,38 @@ function beep({ frequency = 440, duration = 0.08, type = 'sine', gain = 0.03, sl
 function playClick() {
   beep({ frequency: 780, duration: 0.025, type: 'triangle', gain: 0.014, slideTo: 640 });
 }
-function playSpinStart() {
-  beep({ frequency: 220, slideTo: 540, duration: 0.18, type: 'triangle', gain: 0.02 });
-  setTimeout(() => beep({ frequency: 360, slideTo: 700, duration: 0.14, type: 'triangle', gain: 0.015 }), 70);
+function startSpinSound() {
+  const ctx = getAudio();
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const lfo = ctx.createOscillator();
+  const lfoGain = ctx.createGain();
+  const amp = ctx.createGain();
+  osc.type = 'sawtooth';
+  osc.frequency.setValueAtTime(120, now);
+  osc.frequency.linearRampToValueAtTime(70, now + 3.6);
+  lfo.type = 'triangle';
+  lfo.frequency.setValueAtTime(14, now);
+  lfoGain.gain.setValueAtTime(18, now);
+  amp.gain.setValueAtTime(0.0001, now);
+  amp.gain.linearRampToValueAtTime(0.018, now + 0.08);
+  lfo.connect(lfoGain).connect(osc.frequency);
+  osc.connect(amp).connect(ctx.destination);
+  osc.start(now);
+  lfo.start(now);
+  spinNodes = { osc, lfo, amp, ctx };
+}
+
+function stopSpinSound() {
+  if (!spinNodes) return;
+  const { osc, lfo, amp, ctx } = spinNodes;
+  const now = ctx.currentTime;
+  amp.gain.cancelScheduledValues(now);
+  amp.gain.setValueAtTime(amp.gain.value || 0.018, now);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+  osc.stop(now + 0.14);
+  lfo.stop(now + 0.14);
+  spinNodes = null;
 }
 function playResultBoom() {
   beep({ frequency: 150, slideTo: 90, duration: 0.16, type: 'sine', gain: 0.05 });
@@ -340,7 +370,7 @@ function openWheel() {
 
 function spinWheel() {
   if (state.spinning) return;
-  playSpinStart();
+  startSpinSound();
   state.spinning = true;
   const slice = (Math.PI * 2) / segments.length;
   const winningIndex = Math.floor(Math.random() * segments.length);
@@ -363,6 +393,7 @@ function spinWheel() {
     if (t < 1) return requestAnimationFrame(frame);
     state.angle = targetNormalized;
     state.spinning = false;
+    stopSpinSound();
     drawWheel();
     resolveSpin();
   }
