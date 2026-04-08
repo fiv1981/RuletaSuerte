@@ -235,7 +235,6 @@ const phraseBoard = document.getElementById('phraseBoard');
 const phraseCategory = document.getElementById('phraseCategory');
 const usedLetters = document.getElementById('usedLetters');
 const wheelModal = document.getElementById('wheelModal');
-const wheelPrize = document.getElementById('wheelPrize');
 const keyboardModal = document.getElementById('keyboardModal');
 const keyboardGrid = document.getElementById('keyboardGrid');
 
@@ -385,8 +384,8 @@ function spinWheel() {
 
 function resolveSpin() {
   const slice = (Math.PI * 2) / segments.length;
-  const pointerAngle = (-Math.PI / 2 - state.angle + Math.PI * 2) % (Math.PI * 2);
-  const index = Math.floor(pointerAngle / slice) % segments.length;
+  const normalized = ((-state.angle - Math.PI / 2) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+  const index = Math.round(normalized / slice) % segments.length;
   const seg = segments[index];
 
   if (seg.value === 'bankrupt') {
@@ -409,7 +408,6 @@ function resolveSpin() {
     resultHint.textContent = 'Elige una letra en el teclado del juego.';
   }
 
-  wheelPrize.textContent = seg.label;
   updateUI();
 }
 
