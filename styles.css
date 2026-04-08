@@ -88,7 +88,7 @@ h1 {
 
 .top-actions {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -262,6 +262,8 @@ button {
 
 .top-reset-btn {
   min-height: 58px;
+  height: 58px;
+  align-self: stretch;
   padding: 8px 18px;
   border: 0;
   border-radius: 16px;
@@ -413,6 +415,7 @@ canvas {
   .primary-btn,
   .top-reset-btn {
     min-height: 42px;
+    height: 42px;
     padding: 8px 10px;
     font-size: .88rem;
   }
