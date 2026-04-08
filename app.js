@@ -156,6 +156,9 @@ const phraseCategory = document.getElementById('phraseCategory');
 const wheelModal = document.getElementById('wheelModal');
 const keyboardModal = document.getElementById('keyboardModal');
 const keyboardGrid = document.getElementById('keyboardGrid');
+const resultSplash = document.getElementById('resultSplash');
+const resultSplashText = document.getElementById('resultSplashText');
+let audioCtx;
 
 function chunkPhrase(phrase, maxCharsPerLine = 16) {
   const words = phrase.split(' ');
@@ -175,6 +178,42 @@ function chunkPhrase(phrase, maxCharsPerLine = 16) {
   }
   if (current) lines.push(current);
   return lines;
+}
+
+function getAudio() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function beep({ frequency = 440, duration = 0.08, type = 'sine', gain = 0.03, slideTo = null }) {
+  const ctx = getAudio();
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const amp = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(frequency, now);
+  if (slideTo) osc.frequency.linearRampToValueAtTime(slideTo, now + duration);
+  amp.gain.setValueAtTime(gain, now);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  osc.connect(amp).connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + duration);
+}
+
+function playClick() { beep({ frequency: 520, duration: 0.04, type: 'square', gain: 0.02 }); }
+function playSpinStart() { beep({ frequency: 180, slideTo: 420, duration: 0.24, type: 'sawtooth', gain: 0.03 }); }
+function playResultBoom() { beep({ frequency: 220, slideTo: 120, duration: 0.22, type: 'triangle', gain: 0.06 }); }
+function playSuccess() { beep({ frequency: 660, duration: 0.08, type: 'sine', gain: 0.03, slideTo: 880 }); setTimeout(() => beep({ frequency: 880, duration: 0.12, type: 'sine', gain: 0.035 }), 90); }
+function playError() { beep({ frequency: 240, duration: 0.12, type: 'square', gain: 0.03, slideTo: 170 }); }
+
+function showResultSplash(text) {
+  resultSplashText.textContent = text;
+  resultSplash.classList.add('visible');
+  resultSplashText.classList.remove('result-splash__text--bankrupt', 'result-splash__text--lose');
+  if (text === 'QUIEBRA') resultSplashText.classList.add('result-splash__text--bankrupt');
+  if (text === 'PIERDE TURNO') resultSplashText.classList.add('result-splash__text--lose');
+  setTimeout(() => resultSplash.classList.remove('visible'), 620);
 }
 
 function pickPuzzle() {
@@ -260,7 +299,9 @@ function updateUI() {
 
 function renderKeyboard() {
   const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
-  keyboardGrid.innerHTML = letters.map((letter) => {
+  const padded = [...letters, '', '', ''];
+  keyboardGrid.innerHTML = padded.map((letter) => {
+    if (!letter) return '<div class="key-pad" aria-hidden="true"></div>';
     const used = state.used.has(letter);
     const hit = used && state.puzzle.phrase.includes(letter);
     const tone = used ? (hit ? ' key-btn--hit' : ' key-btn--miss') : '';
@@ -275,6 +316,7 @@ function renderKeyboard() {
 
 function openWheel() {
   if (state.spinning || state.solved) return;
+  playClick();
   state.wheelVisible = true;
   state.keyboardVisible = false;
   updateUI();
@@ -282,6 +324,7 @@ function openWheel() {
 
 function spinWheel() {
   if (state.spinning) return;
+  playSpinStart();
   state.spinning = true;
   const slice = (Math.PI * 2) / segments.length;
   const winningIndex = Math.floor(Math.random() * segments.length);
@@ -320,18 +363,27 @@ function resolveSpin() {
     state.wheelVisible = false;
     resultLabel.textContent = '¡Quiebra!';
     resultHint.textContent = 'Pierdes los puntos y puedes volver a girar.';
+    showResultSplash('QUIEBRA');
+    playResultBoom();
   } else if (seg.value === 'lose') {
     state.lives = Math.max(0, state.lives - 1);
     state.currentPrize = 0;
     state.wheelVisible = false;
     resultLabel.textContent = 'Pierdes turno';
     resultHint.textContent = 'Has perdido una vida. Vuelve a girar.';
+    showResultSplash('PIERDE TURNO');
+    playResultBoom();
   } else {
     state.currentPrize = seg.value;
     state.wheelVisible = false;
-    state.keyboardVisible = true;
     resultLabel.textContent = `${seg.label} por acierto`;
     resultHint.textContent = 'Elige una letra en el teclado del juego.';
+    showResultSplash(String(seg.label));
+    playResultBoom();
+    setTimeout(() => {
+      state.keyboardVisible = true;
+      updateUI();
+    }, 420);
   }
 
   state.pendingSegment = null;
@@ -348,10 +400,12 @@ function pickLetter(letter) {
     state.score += count * state.currentPrize;
     resultLabel.textContent = `¡${count} ${count === 1 ? 'letra' : 'letras'}!`;
     resultHint.textContent = `Sumas ${count * state.currentPrize} puntos. Puedes volver a girar.`;
+    playSuccess();
   } else {
     state.lives = Math.max(0, state.lives - 1);
     resultLabel.textContent = 'No aparece';
     resultHint.textContent = 'La letra no está. Pierdes una vida.';
+    playError();
   }
 
   state.currentPrize = 0;
@@ -373,18 +427,24 @@ function solvePuzzle() {
     state.solved = true;
     resultLabel.textContent = '¡Correcto!';
     resultHint.textContent = `Has resuelto el panel con ${state.score} puntos.`;
+    playSuccess();
   } else {
     state.lives = Math.max(0, state.lives - 1);
     resultLabel.textContent = 'No es correcto';
     resultHint.textContent = 'Pierdes una vida y puedes seguir jugando.';
+    playError();
   }
   updateUI();
 }
 
 document.getElementById('spinBtn').addEventListener('click', openWheel);
 document.getElementById('wheelSpinBtn').addEventListener('click', spinWheel);
-document.getElementById('solveBtn').addEventListener('click', solvePuzzle);
+document.getElementById('solveBtn').addEventListener('click', () => {
+  playClick();
+  solvePuzzle();
+});
 document.getElementById('openKeyboardBtn').addEventListener('click', () => {
+  playClick();
   if (state.solved) return;
   state.keyboardVisible = true;
   state.wheelVisible = false;
