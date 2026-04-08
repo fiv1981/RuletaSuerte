@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RuletaSuerte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <h1>🎡 RuletaSuerte</h1>
+      <button id="resetBtn" class="ghost-btn">Reiniciar</button>
+    </header>
+
+    <section class="board">
+      <div class="wheel-panel card">
+        <canvas id="wheel" width="540" height="540" aria-label="Ruleta"></canvas>
+        <button id="spinBtn" class="primary-btn">Girar ruleta</button>
+      </div>
+
+      <div class="side-panel">
+        <section class="card result-card">
+          <p class="eyebrow">Resultado</p>
+          <h2 id="resultLabel">Pulsa para girar</h2>
+          <p id="resultHint">Consigue puntos, vocales o premios especiales.</p>
+        </section>
+
+        <section class="card puzzle-card">
+          <p class="eyebrow">Panel</p>
+          <div id="phraseCategory" class="category-chip">Películas</div>
+          <div id="phraseBoard" class="phrase-board"></div>
+        </section>
+
+        <section class="card controls-card">
+          <div class="score-row">
+            <div>
+              <p class="eyebrow">Puntuación</p>
+              <strong id="scoreValue">0</strong>
+            </div>
+            <div>
+              <p class="eyebrow">Vidas</p>
+              <strong id="lifeValue">3</strong>
+            </div>
+          </div>
+          <div class="letter-controls">
+            <input id="letterInput" maxlength="1" placeholder="Letra" autocomplete="off" />
+            <button id="guessBtn" class="primary-btn">Probar letra</button>
+            <button id="solveBtn" class="ghost-btn">Resolver</button>
+          </div>
+          <div class="used-wrap">
+            <p class="eyebrow">Letras usadas</p>
+            <div id="usedLetters" class="used-letters">Ninguna</div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
