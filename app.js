@@ -174,14 +174,6 @@ function chunkPhrase(phrase, maxCharsPerLine = 16) {
     }
   }
   if (current) lines.push(current);
-  while (lines.length > 3) {
-    let shortestIndex = 0;
-    for (let i = 1; i < lines.length - 1; i += 1) {
-      if (lines[i].length < lines[shortestIndex].length) shortestIndex = i;
-    }
-    lines[shortestIndex] += ` ${lines[shortestIndex + 1]}`;
-    lines.splice(shortestIndex + 1, 1);
-  }
   return lines;
 }
 
@@ -247,7 +239,7 @@ function updateUI() {
   phraseBoard.innerHTML = '';
 
   const isPortrait = window.innerHeight > window.innerWidth;
-  const lines = chunkPhrase(state.puzzle.phrase, isPortrait ? 9 : window.innerHeight < 700 ? 16 : 20);
+  const lines = chunkPhrase(state.puzzle.phrase, isPortrait ? 8 : window.innerHeight < 700 ? 16 : 20);
   lines.forEach((line) => {
     const row = document.createElement('div');
     row.className = 'phrase-row';
