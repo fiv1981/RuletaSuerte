@@ -87,22 +87,20 @@ h1 {
 }
 
 .top-actions {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  display: flex;
   align-items: stretch;
   gap: 8px;
-  justify-content: end;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .top-actions > * {
-  height: 58px;
+  flex: 0 0 auto;
 }
 
 .stat-pill {
   min-width: 86px;
   min-height: 58px;
-  height: 58px;
   padding: 8px 12px;
   border-radius: 16px;
   background: rgba(255,255,255,0.05);
@@ -390,7 +388,6 @@ canvas {
   .stat-pill {
     min-width: 72px;
     min-height: 46px;
-    height: 46px;
     padding: 7px 10px;
   }
 
@@ -429,10 +426,6 @@ canvas {
     height: 42px;
     padding: 8px 10px;
     font-size: .88rem;
-  }
-
-  .top-actions > * {
-    height: 46px;
   }
 
   canvas {
