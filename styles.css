@@ -415,6 +415,25 @@ canvas {
     grid-template-columns: 1fr;
   }
 
+  .phrase-board {
+    justify-items: stretch;
+    overflow-x: hidden;
+  }
+
+  .phrase-row {
+    width: 100%;
+    gap: 4px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tile,
+  .letter-box {
+    min-width: clamp(20px, 7.2vw, 34px);
+    height: clamp(28px, 6.8vw, 40px);
+    font-size: clamp(.76rem, 3.5vw, 1rem);
+  }
+
   .keyboard-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
