@@ -287,6 +287,7 @@ button {
 
 canvas {
   width: min(100%, 360px);
+  aspect-ratio: 1 / 1;
   height: auto;
   max-height: 54vh;
 }
@@ -387,6 +388,7 @@ canvas {
 
   canvas {
     width: min(100%, 260px);
+    aspect-ratio: 1 / 1;
     max-height: 42vh;
   }
 

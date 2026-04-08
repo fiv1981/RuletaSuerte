@@ -9,63 +9,208 @@ const segments = [
   { label: '500', value: 500, color: '#14b8a6' }
 ];
 
-const phraseTemplates = [
-  ['Películas', 'EL SILENCIO DE LOS CORDEROS'],
-  ['Películas', 'REGRESO AL FUTURO'],
-  ['Películas', 'EN BUSCA DEL ARCA PERDIDA'],
-  ['Películas', 'LA VIDA ES BELLA'],
-  ['Películas', 'EL CLUB DE LOS POETAS MUERTOS'],
-  ['Películas', 'CADENA PERPETUA'],
-  ['Películas', 'ATRAPAME SI PUEDES'],
-  ['Películas', 'BAILANDO CON LOBOS'],
-  ['Películas', 'EL NOMBRE DE LA ROSA'],
-  ['Películas', 'LA LISTA DE SCHINDLER'],
-  ['Series', 'JUEGO DE TRONOS'],
-  ['Series', 'LA CASA DE PAPEL'],
-  ['Series', 'COMO CONOCI A VUESTRA MADRE'],
-  ['Series', 'COSAS MAS EXTRAÑAS'],
-  ['Series', 'EL CUENTO DE LA CRIADA'],
-  ['Series', 'LA QUE SE AVECINA'],
-  ['Series', 'A DOS METROS BAJO TIERRA'],
-  ['Series', 'LOS SIMPSON'],
-  ['Series', 'MODERN FAMILY'],
-  ['Series', 'THE BIG BANG THEORY'],
-  ['Música', 'BOHEMIAN RHAPSODY'],
-  ['Música', 'WE WILL ROCK YOU'],
-  ['Música', 'NO PUEDO VIVIR SIN TI'],
-  ['Música', 'ENTRE DOS TIERRAS'],
-  ['Música', 'LA CHICA DE AYER'],
-  ['Música', 'DEVUELVEME A MI CHICA'],
-  ['Música', 'VIVIR ASI ES MORIR DE AMOR'],
-  ['Música', 'MEDITERRANEO'],
-  ['Música', 'CORAZON PARTIO'],
-  ['Música', 'BESO'],
-  ['Lugares', 'TORRE EIFFEL'],
-  ['Lugares', 'PLAZA MAYOR DE MADRID'],
-  ['Lugares', 'PARQUE NACIONAL DE ORDESA'],
-  ['Lugares', 'PUENTE DE BROOKLYN'],
-  ['Lugares', 'GRAN VIA DE MADRID'],
-  ['Lugares', 'MONTE FUJI'],
-  ['Lugares', 'MURALLA CHINA'],
-  ['Lugares', 'MUSEO DEL PRADO'],
-  ['Lugares', 'CENTRAL PARK'],
-  ['Lugares', 'ALHAMBRA DE GRANADA'],
-  ['Expresiones', 'A QUIEN MADRUGA DIOS LE AYUDA'],
-  ['Expresiones', 'NO HAY MAL QUE POR BIEN NO VENGA'],
-  ['Expresiones', 'MAS VALE TARDE QUE NUNCA'],
-  ['Expresiones', 'AL MAL TIEMPO BUENA CARA'],
-  ['Expresiones', 'EN CASA DEL HERRERO CUCHILLO DE PALO'],
-  ['Expresiones', 'NUNCA ES TARDE SI LA DICHA ES BUENA'],
-  ['Expresiones', 'CUANDO EL RIO SUENA AGUA LLEVA'],
-  ['Expresiones', 'MUCHO RUIDO Y POCAS NUECES'],
-  ['Expresiones', 'A PALABRAS NECIAS OIDOS SORDOS'],
-  ['Expresiones', 'EL HABITO NO HACE AL MONJE']
+const puzzles = [
+  { category: 'Películas', phrase: 'EL SECRETO DE SUS OJOS' },
+  { category: 'Películas', phrase: 'LA VIDA ES BELLA Y MARAVILLOSA' },
+  { category: 'Películas', phrase: 'EL CLUB DE LOS POETAS MUERTOS' },
+  { category: 'Películas', phrase: 'REGRESO AL FUTURO PARTE DOS' },
+  { category: 'Películas', phrase: 'EN BUSCA DEL ARCA PERDIDA' },
+  { category: 'Películas', phrase: 'ATRAPAME SI PUEDES ESTA NOCHE' },
+  { category: 'Películas', phrase: 'EL SILENCIO DE LOS CORDEROS' },
+  { category: 'Películas', phrase: 'LA LISTA DE SCHINDLER COMPLETA' },
+  { category: 'Películas', phrase: 'BAILANDO CON LOBOS BAJO LA LUNA' },
+  { category: 'Películas', phrase: 'CADENA PERPETUA EN LA COLINA' },
+  { category: 'Series', phrase: 'LA CASA DE PAPEL EN TOKIO' },
+  { category: 'Series', phrase: 'COMO CONOCI A VUESTRA MADRE' },
+  { category: 'Series', phrase: 'JUEGO DE TRONOS Y DRAGONES' },
+  { category: 'Series', phrase: 'LOS SIMPSON EN PRIMAVERA' },
+  { category: 'Series', phrase: 'THE BIG BANG THEORY AL COMPLETO' },
+  { category: 'Series', phrase: 'A DOS METROS BAJO TIERRA SIEMPRE' },
+  { category: 'Series', phrase: 'LA QUE SE AVECINA EN MIRADOR' },
+  { category: 'Series', phrase: 'COSAS MAS EXTRAÑAS EN HAWKINS' },
+  { category: 'Series', phrase: 'EL CUENTO DE LA CRIADA ROJA' },
+  { category: 'Series', phrase: 'MODERN FAMILY EN VACACIONES' },
+  { category: 'Música', phrase: 'LA CHICA DE AYER EN MI BARRIO' },
+  { category: 'Música', phrase: 'VIVIR ASI ES MORIR DE AMOR' },
+  { category: 'Música', phrase: 'DEVUELVEME A MI CHICA ESTA TARDE' },
+  { category: 'Música', phrase: 'BOHEMIAN RHAPSODY EN DIRECTO' },
+  { category: 'Música', phrase: 'ENTRE DOS TIERRAS Y VIENTO' },
+  { category: 'Música', phrase: 'WE WILL ROCK YOU TODA LA NOCHE' },
+  { category: 'Música', phrase: 'CORAZON PARTIO BAJO LA LLUVIA' },
+  { category: 'Música', phrase: 'MEDITERRANEO AL ATARDECER DORADO' },
+  { category: 'Música', phrase: 'NO PUEDO VIVIR SIN TI HOY' },
+  { category: 'Música', phrase: 'BESO LENTO BAJO LAS ESTRELLAS' },
+  { category: 'Lugares', phrase: 'PLAZA MAYOR DE MADRID AL ANOCHECER' },
+  { category: 'Lugares', phrase: 'GRAN VIA DE MADRID ILUMINADA' },
+  { category: 'Lugares', phrase: 'ALHAMBRA DE GRANADA EN PRIMAVERA' },
+  { category: 'Lugares', phrase: 'PARQUE NACIONAL DE ORDESA NEVADO' },
+  { category: 'Lugares', phrase: 'PUENTE DE BROOKLYN AL AMANECER' },
+  { category: 'Lugares', phrase: 'MUSEO DEL PRADO EN SILENCIO' },
+  { category: 'Lugares', phrase: 'CENTRAL PARK EN OTONO DORADO' },
+  { category: 'Lugares', phrase: 'MURALLA CHINA ENTRE MONTAÑAS' },
+  { category: 'Lugares', phrase: 'MONTE FUJI TRAS LAS NUBES' },
+  { category: 'Lugares', phrase: 'TORRE EIFFEL BRILLANDO DE NOCHE' },
+  { category: 'Expresiones', phrase: 'A QUIEN MADRUGA DIOS LE AYUDA SIEMPRE' },
+  { category: 'Expresiones', phrase: 'MAS VALE TARDE QUE NUNCA JAMAS' },
+  { category: 'Expresiones', phrase: 'AL MAL TIEMPO BUENA CARA SIEMPRE' },
+  { category: 'Expresiones', phrase: 'NO HAY MAL QUE POR BIEN NO VENGA' },
+  { category: 'Expresiones', phrase: 'MUCHO RUIDO Y POCAS NUECES VERDES' },
+  { category: 'Expresiones', phrase: 'A PALABRAS NECIAS OIDOS SORDOS SIEMPRE' },
+  { category: 'Expresiones', phrase: 'EL HABITO NO HACE AL MONJE SABIO' },
+  { category: 'Expresiones', phrase: 'CUANDO EL RIO SUENA AGUA LLEVA DENTRO' },
+  { category: 'Expresiones', phrase: 'NUNCA ES TARDE SI LA DICHA ES BUENA' },
+  { category: 'Expresiones', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO' },
+  { category: 'Películas', phrase: 'EL SECRETO DE SUS OJOS BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'LA VIDA ES BELLA Y MARAVILLOSA BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'EL CLUB DE LOS POETAS MUERTOS BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'REGRESO AL FUTURO PARTE DOS BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'EN BUSCA DEL ARCA PERDIDA BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'ATRAPAME SI PUEDES ESTA NOCHE BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'EL SILENCIO DE LOS CORDEROS BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'LA LISTA DE SCHINDLER COMPLETA BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'BAILANDO CON LOBOS BAJO LA LUNA BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'CADENA PERPETUA EN LA COLINA BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'LA CASA DE PAPEL EN TOKIO BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'COMO CONOCI A VUESTRA MADRE BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'JUEGO DE TRONOS Y DRAGONES BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'LOS SIMPSON EN PRIMAVERA BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'THE BIG BANG THEORY AL COMPLETO BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'A DOS METROS BAJO TIERRA SIEMPRE BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'LA QUE SE AVECINA EN MIRADOR BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'COSAS MAS EXTRAÑAS EN HAWKINS BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'EL CUENTO DE LA CRIADA ROJA BAJO LA LLUVIA DORADA' },
+  { category: 'Series', phrase: 'MODERN FAMILY EN VACACIONES BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'LA CHICA DE AYER EN MI BARRIO BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'VIVIR ASI ES MORIR DE AMOR BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'DEVUELVEME A MI CHICA ESTA TARDE BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'BOHEMIAN RHAPSODY EN DIRECTO BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'ENTRE DOS TIERRAS Y VIENTO BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'WE WILL ROCK YOU TODA LA NOCHE BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'CORAZON PARTIO BAJO LA LLUVIA BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'MEDITERRANEO AL ATARDECER DORADO BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'NO PUEDO VIVIR SIN TI HOY BAJO LA LLUVIA DORADA' },
+  { category: 'Música', phrase: 'BESO LENTO BAJO LAS ESTRELLAS BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'PLAZA MAYOR DE MADRID AL ANOCHECER BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'GRAN VIA DE MADRID ILUMINADA BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'ALHAMBRA DE GRANADA EN PRIMAVERA BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'PARQUE NACIONAL DE ORDESA NEVADO BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'PUENTE DE BROOKLYN AL AMANECER BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'MUSEO DEL PRADO EN SILENCIO BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'CENTRAL PARK EN OTONO DORADO BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'MURALLA CHINA ENTRE MONTAÑAS BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'MONTE FUJI TRAS LAS NUBES BAJO LA LLUVIA DORADA' },
+  { category: 'Lugares', phrase: 'TORRE EIFFEL BRILLANDO DE NOCHE BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'A QUIEN MADRUGA DIOS LE AYUDA SIEMPRE BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'MAS VALE TARDE QUE NUNCA JAMAS BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'AL MAL TIEMPO BUENA CARA SIEMPRE BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'NO HAY MAL QUE POR BIEN NO VENGA BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'MUCHO RUIDO Y POCAS NUECES VERDES BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'A PALABRAS NECIAS OIDOS SORDOS SIEMPRE BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'EL HABITO NO HACE AL MONJE SABIO BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'CUANDO EL RIO SUENA AGUA LLEVA DENTRO BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'NUNCA ES TARDE SI LA DICHA ES BUENA BAJO LA LLUVIA DORADA' },
+  { category: 'Expresiones', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO BAJO LA LLUVIA DORADA' },
+  { category: 'Películas', phrase: 'EL SECRETO DE SUS OJOS AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'LA VIDA ES BELLA Y MARAVILLOSA AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'EL CLUB DE LOS POETAS MUERTOS AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'REGRESO AL FUTURO PARTE DOS AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'EN BUSCA DEL ARCA PERDIDA AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'ATRAPAME SI PUEDES ESTA NOCHE AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'EL SILENCIO DE LOS CORDEROS AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'LA LISTA DE SCHINDLER COMPLETA AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'BAILANDO CON LOBOS BAJO LA LUNA AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'CADENA PERPETUA EN LA COLINA AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'LA CASA DE PAPEL EN TOKIO AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'COMO CONOCI A VUESTRA MADRE AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'JUEGO DE TRONOS Y DRAGONES AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'LOS SIMPSON EN PRIMAVERA AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'THE BIG BANG THEORY AL COMPLETO AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'A DOS METROS BAJO TIERRA SIEMPRE AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'LA QUE SE AVECINA EN MIRADOR AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'COSAS MAS EXTRAÑAS EN HAWKINS AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'EL CUENTO DE LA CRIADA ROJA AL FINAL DEL CAMINO' },
+  { category: 'Series', phrase: 'MODERN FAMILY EN VACACIONES AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'LA CHICA DE AYER EN MI BARRIO AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'VIVIR ASI ES MORIR DE AMOR AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'DEVUELVEME A MI CHICA ESTA TARDE AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'BOHEMIAN RHAPSODY EN DIRECTO AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'ENTRE DOS TIERRAS Y VIENTO AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'WE WILL ROCK YOU TODA LA NOCHE AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'CORAZON PARTIO BAJO LA LLUVIA AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'MEDITERRANEO AL ATARDECER DORADO AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'NO PUEDO VIVIR SIN TI HOY AL FINAL DEL CAMINO' },
+  { category: 'Música', phrase: 'BESO LENTO BAJO LAS ESTRELLAS AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'PLAZA MAYOR DE MADRID AL ANOCHECER AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'GRAN VIA DE MADRID ILUMINADA AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'ALHAMBRA DE GRANADA EN PRIMAVERA AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'PARQUE NACIONAL DE ORDESA NEVADO AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'PUENTE DE BROOKLYN AL AMANECER AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'MUSEO DEL PRADO EN SILENCIO AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'CENTRAL PARK EN OTONO DORADO AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'MURALLA CHINA ENTRE MONTAÑAS AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'MONTE FUJI TRAS LAS NUBES AL FINAL DEL CAMINO' },
+  { category: 'Lugares', phrase: 'TORRE EIFFEL BRILLANDO DE NOCHE AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'A QUIEN MADRUGA DIOS LE AYUDA SIEMPRE AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'MAS VALE TARDE QUE NUNCA JAMAS AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'AL MAL TIEMPO BUENA CARA SIEMPRE AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'NO HAY MAL QUE POR BIEN NO VENGA AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'MUCHO RUIDO Y POCAS NUECES VERDES AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'A PALABRAS NECIAS OIDOS SORDOS SIEMPRE AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'EL HABITO NO HACE AL MONJE SABIO AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'CUANDO EL RIO SUENA AGUA LLEVA DENTRO AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'NUNCA ES TARDE SI LA DICHA ES BUENA AL FINAL DEL CAMINO' },
+  { category: 'Expresiones', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO AL FINAL DEL CAMINO' },
+  { category: 'Películas', phrase: 'EL SECRETO DE SUS OJOS EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'LA VIDA ES BELLA Y MARAVILLOSA EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'EL CLUB DE LOS POETAS MUERTOS EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'REGRESO AL FUTURO PARTE DOS EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'EN BUSCA DEL ARCA PERDIDA EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'ATRAPAME SI PUEDES ESTA NOCHE EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'EL SILENCIO DE LOS CORDEROS EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'LA LISTA DE SCHINDLER COMPLETA EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'BAILANDO CON LOBOS BAJO LA LUNA EN UNA NOCHE DE VERANO' },
+  { category: 'Películas', phrase: 'CADENA PERPETUA EN LA COLINA EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'LA CASA DE PAPEL EN TOKIO EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'COMO CONOCI A VUESTRA MADRE EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'JUEGO DE TRONOS Y DRAGONES EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'LOS SIMPSON EN PRIMAVERA EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'THE BIG BANG THEORY AL COMPLETO EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'A DOS METROS BAJO TIERRA SIEMPRE EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'LA QUE SE AVECINA EN MIRADOR EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'COSAS MAS EXTRAÑAS EN HAWKINS EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'EL CUENTO DE LA CRIADA ROJA EN UNA NOCHE DE VERANO' },
+  { category: 'Series', phrase: 'MODERN FAMILY EN VACACIONES EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'LA CHICA DE AYER EN MI BARRIO EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'VIVIR ASI ES MORIR DE AMOR EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'DEVUELVEME A MI CHICA ESTA TARDE EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'BOHEMIAN RHAPSODY EN DIRECTO EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'ENTRE DOS TIERRAS Y VIENTO EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'WE WILL ROCK YOU TODA LA NOCHE EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'CORAZON PARTIO BAJO LA LLUVIA EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'MEDITERRANEO AL ATARDECER DORADO EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'NO PUEDO VIVIR SIN TI HOY EN UNA NOCHE DE VERANO' },
+  { category: 'Música', phrase: 'BESO LENTO BAJO LAS ESTRELLAS EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'PLAZA MAYOR DE MADRID AL ANOCHECER EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'GRAN VIA DE MADRID ILUMINADA EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'ALHAMBRA DE GRANADA EN PRIMAVERA EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'PARQUE NACIONAL DE ORDESA NEVADO EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'PUENTE DE BROOKLYN AL AMANECER EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'MUSEO DEL PRADO EN SILENCIO EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'CENTRAL PARK EN OTONO DORADO EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'MURALLA CHINA ENTRE MONTAÑAS EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'MONTE FUJI TRAS LAS NUBES EN UNA NOCHE DE VERANO' },
+  { category: 'Lugares', phrase: 'TORRE EIFFEL BRILLANDO DE NOCHE EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'A QUIEN MADRUGA DIOS LE AYUDA SIEMPRE EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'MAS VALE TARDE QUE NUNCA JAMAS EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'AL MAL TIEMPO BUENA CARA SIEMPRE EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'NO HAY MAL QUE POR BIEN NO VENGA EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'MUCHO RUIDO Y POCAS NUECES VERDES EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'A PALABRAS NECIAS OIDOS SORDOS SIEMPRE EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'EL HABITO NO HACE AL MONJE SABIO EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'CUANDO EL RIO SUENA AGUA LLEVA DENTRO EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'NUNCA ES TARDE SI LA DICHA ES BUENA EN UNA NOCHE DE VERANO' },
+  { category: 'Expresiones', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO EN UNA NOCHE DE VERANO' }
 ];
-
-const puzzles = Array.from({ length: 200 }, (_, index) => {
-  const [category, phrase] = phraseTemplates[index % phraseTemplates.length];
-  return { category, phrase: `${phrase} ${String(index + 1).padStart(3, '0')}` };
-});
 
 const state = {
   score: 0,
@@ -94,7 +239,7 @@ const wheelPrize = document.getElementById('wheelPrize');
 const keyboardModal = document.getElementById('keyboardModal');
 const keyboardGrid = document.getElementById('keyboardGrid');
 
-function chunkPhrase(phrase, maxCharsPerLine = 18) {
+function chunkPhrase(phrase, maxCharsPerLine = 16) {
   const words = phrase.split(' ');
   const lines = [];
   let current = '';
@@ -111,7 +256,11 @@ function chunkPhrase(phrase, maxCharsPerLine = 18) {
     }
   }
   if (current) lines.push(current);
-  return lines.slice(0, 3);
+  while (lines.length > 3) {
+    const last = lines.pop();
+    lines[lines.length - 1] += ' ' + last;
+  }
+  return lines;
 }
 
 function pickPuzzle() {
@@ -236,8 +385,8 @@ function spinWheel() {
 
 function resolveSpin() {
   const slice = (Math.PI * 2) / segments.length;
-  const normalized = (state.angle + Math.PI * 2) % (Math.PI * 2);
-  const index = Math.floor(((Math.PI * 2 - normalized) % (Math.PI * 2)) / slice) % segments.length;
+  const pointerAngle = (-Math.PI / 2 - state.angle + Math.PI * 2) % (Math.PI * 2);
+  const index = Math.floor(pointerAngle / slice) % segments.length;
   const seg = segments[index];
 
   if (seg.value === 'bankrupt') {
@@ -310,6 +459,12 @@ function solvePuzzle() {
 document.getElementById('spinBtn').addEventListener('click', openWheel);
 document.getElementById('wheelSpinBtn').addEventListener('click', spinWheel);
 document.getElementById('solveBtn').addEventListener('click', solvePuzzle);
+document.getElementById('openKeyboardBtn').addEventListener('click', () => {
+  if (state.solved) return;
+  state.keyboardVisible = true;
+  state.wheelVisible = false;
+  updateUI();
+});
 document.getElementById('resetBtn').addEventListener('click', pickPuzzle);
 document.getElementById('closeWheelBtn').addEventListener('click', () => {
   if (state.spinning) return;
