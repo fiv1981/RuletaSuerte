@@ -203,6 +203,10 @@ h1 {
   gap: 10px;
 }
 
+.panel-footer--single {
+  grid-template-columns: 1fr;
+}
+
 .panel-hint,
 .used-letters {
   margin: 0;
@@ -310,8 +314,22 @@ canvas {
   font-weight: 800;
 }
 
+.key-btn--hit {
+  background: rgba(34, 197, 94, 0.28);
+  border-color: rgba(34, 197, 94, 0.45);
+  color: #dcfce7;
+  opacity: 1;
+}
+
+.key-btn--miss {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.45);
+  color: #fecaca;
+  opacity: 1;
+}
+
 .key-btn:disabled {
-  opacity: .35;
+  opacity: .55;
   cursor: not-allowed;
 }
 
@@ -424,7 +442,7 @@ canvas {
     width: 100%;
     gap: 4px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .tile,

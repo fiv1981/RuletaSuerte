@@ -153,7 +153,6 @@ const scoreValue = document.getElementById('scoreValue');
 const lifeValue = document.getElementById('lifeValue');
 const phraseBoard = document.getElementById('phraseBoard');
 const phraseCategory = document.getElementById('phraseCategory');
-const usedLetters = document.getElementById('usedLetters');
 const wheelModal = document.getElementById('wheelModal');
 const keyboardModal = document.getElementById('keyboardModal');
 const keyboardGrid = document.getElementById('keyboardGrid');
@@ -176,8 +175,12 @@ function chunkPhrase(phrase, maxCharsPerLine = 16) {
   }
   if (current) lines.push(current);
   while (lines.length > 3) {
-    const last = lines.pop();
-    lines[lines.length - 1] += ' ' + last;
+    let shortestIndex = 0;
+    for (let i = 1; i < lines.length - 1; i += 1) {
+      if (lines[i].length < lines[shortestIndex].length) shortestIndex = i;
+    }
+    lines[shortestIndex] += ` ${lines[shortestIndex + 1]}`;
+    lines.splice(shortestIndex + 1, 1);
   }
   return lines;
 }
@@ -243,7 +246,8 @@ function updateUI() {
   phraseCategory.textContent = state.puzzle.category;
   phraseBoard.innerHTML = '';
 
-  const lines = chunkPhrase(state.puzzle.phrase, window.innerHeight < 700 ? 16 : 20);
+  const isPortrait = window.innerHeight > window.innerWidth;
+  const lines = chunkPhrase(state.puzzle.phrase, isPortrait ? 12 : window.innerHeight < 700 ? 16 : 20);
   lines.forEach((line) => {
     const row = document.createElement('div');
     row.className = 'phrase-row';
@@ -256,7 +260,6 @@ function updateUI() {
     phraseBoard.appendChild(row);
   });
 
-  usedLetters.textContent = [...state.used].filter((l) => l !== ' ').sort().join(', ') || 'Ninguna';
   wheelModal.classList.toggle('visible', state.wheelVisible);
   keyboardModal.classList.toggle('visible', state.keyboardVisible);
   drawWheel();
@@ -265,9 +268,14 @@ function updateUI() {
 
 function renderKeyboard() {
   const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
-  keyboardGrid.innerHTML = letters.map((letter) => `
-    <button class="key-btn" data-letter="${letter}" ${state.used.has(letter) || !state.currentPrize || state.solved ? 'disabled' : ''}>${letter}</button>
-  `).join('');
+  keyboardGrid.innerHTML = letters.map((letter) => {
+    const used = state.used.has(letter);
+    const hit = used && state.puzzle.phrase.includes(letter);
+    const tone = used ? (hit ? ' key-btn--hit' : ' key-btn--miss') : '';
+    return `
+      <button class="key-btn${tone}" data-letter="${letter}" ${used || !state.currentPrize || state.solved ? 'disabled' : ''}>${letter}</button>
+    `;
+  }).join('');
   keyboardGrid.querySelectorAll('[data-letter]').forEach((btn) => {
     btn.addEventListener('click', () => pickLetter(btn.dataset.letter));
   });
