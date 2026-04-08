@@ -87,22 +87,20 @@ h1 {
 }
 
 .top-actions {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  display: flex;
   align-items: stretch;
   gap: 8px;
-  justify-content: end;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .top-actions > * {
-  height: 58px;
+  flex: 0 0 auto;
 }
 
 .stat-pill {
   min-width: 86px;
   min-height: 58px;
-  height: 58px;
   padding: 8px 12px;
   border-radius: 16px;
   background: rgba(255,255,255,0.05);
@@ -167,13 +165,10 @@ h1 {
 
 .phrase-board {
   min-height: 0;
-  width: 100%;
   display: grid;
-  justify-items: center;
   align-content: center;
   gap: 10px;
-  padding: 10px 6px;
-  overflow: hidden;
+  padding: 10px;
   border-radius: 18px;
   background: rgba(255,255,255,0.04);
 }
@@ -181,23 +176,20 @@ h1 {
 .phrase-row {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: nowrap;
-  max-width: 100%;
-  margin-inline: auto;
 }
 
 .tile,
 .letter-box {
-  width: clamp(18px, 2.55vw, 40px);
-  min-width: 0;
+  min-width: clamp(26px, 2.8vw, 40px);
   height: clamp(34px, 5vh, 48px);
   border-radius: 12px;
   display: grid;
   place-items: center;
   background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
   border: 1px solid rgba(255,255,255,0.08);
-  font-size: clamp(.78rem, 1.35vw, 1.25rem);
+  font-size: clamp(.92rem, 1.45vw, 1.25rem);
   font-weight: 800;
 }
 
@@ -396,7 +388,6 @@ canvas {
   .stat-pill {
     min-width: 72px;
     min-height: 46px;
-    height: 46px;
     padding: 7px 10px;
   }
 
@@ -437,10 +428,6 @@ canvas {
     font-size: .88rem;
   }
 
-  .top-actions > * {
-    height: 46px;
-  }
-
   canvas {
     width: min(100%, 260px);
     aspect-ratio: 1 / 1;
@@ -477,13 +464,13 @@ canvas {
     justify-items: center;
     align-content: center;
     overflow: hidden;
-    padding: 8px 2px;
+    padding: 8px 4px;
   }
 
   .phrase-row {
     width: auto;
     max-width: 100%;
-    gap: 2px;
+    gap: 3px;
     justify-content: center;
     margin-inline: auto;
     flex-wrap: nowrap;
@@ -491,11 +478,9 @@ canvas {
 
   .tile,
   .letter-box {
-    width: clamp(12px, 4.7vw, 22px);
-    min-width: 0;
-    height: clamp(20px, 5.4vw, 30px);
-    font-size: clamp(.54rem, 2.4vw, .82rem);
-    border-radius: 8px;
+    min-width: clamp(18px, 6vw, 30px);
+    height: clamp(24px, 6vw, 34px);
+    font-size: clamp(.7rem, 3vw, .92rem);
   }
 
   .keyboard-grid {
