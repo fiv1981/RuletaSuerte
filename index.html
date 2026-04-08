@@ -2,8 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>RuletaSuerte</title>
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="RuletaSuerte" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon-512.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -11,52 +18,65 @@
 </head>
 <body>
   <main class="app-shell">
-    <header class="topbar">
-      <h1>🎡 RuletaSuerte</h1>
-      <button id="resetBtn" class="ghost-btn">Reiniciar</button>
+    <header class="topbar glass">
+      <div class="brand-wrap">
+        <img src="icon.svg" alt="RuletaSuerte" class="brand-icon" />
+        <div>
+          <p class="eyebrow">Juego tipo panel y ruleta</p>
+          <h1>RuletaSuerte</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="stat-pill">
+          <span class="stat-pill__label">Puntos</span>
+          <strong id="scoreValue">0</strong>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-pill__label">Vidas</span>
+          <strong id="lifeValue">3</strong>
+        </div>
+        <button id="resetBtn" class="ghost-btn">Reiniciar</button>
+      </div>
     </header>
 
-    <section class="board">
-      <div class="wheel-panel card">
-        <canvas id="wheel" width="540" height="540" aria-label="Ruleta"></canvas>
-        <button id="spinBtn" class="primary-btn">Girar ruleta</button>
-      </div>
-
-      <div class="side-panel">
-        <section class="card result-card">
-          <p class="eyebrow">Resultado</p>
-          <h2 id="resultLabel">Pulsa para girar</h2>
-          <p id="resultHint">Consigue puntos, vocales o premios especiales.</p>
-        </section>
-
-        <section class="card puzzle-card">
-          <p class="eyebrow">Panel</p>
+    <section class="playfield">
+      <section class="panel-stage glass">
+        <div class="panel-head">
           <div id="phraseCategory" class="category-chip">Películas</div>
-          <div id="phraseBoard" class="phrase-board"></div>
-        </section>
-
-        <section class="card controls-card">
-          <div class="score-row">
-            <div>
-              <p class="eyebrow">Puntuación</p>
-              <strong id="scoreValue">0</strong>
-            </div>
-            <div>
-              <p class="eyebrow">Vidas</p>
-              <strong id="lifeValue">3</strong>
-            </div>
-          </div>
-          <div class="letter-controls">
-            <input id="letterInput" maxlength="1" placeholder="Letra" autocomplete="off" />
-            <button id="guessBtn" class="primary-btn">Probar letra</button>
-            <button id="solveBtn" class="ghost-btn">Resolver</button>
+          <div id="resultLabel" class="result-inline">Pulsa para girar</div>
+        </div>
+        <div id="phraseBoard" class="phrase-board"></div>
+        <div class="panel-footer">
+          <div>
+            <p class="eyebrow">Estado</p>
+            <p id="resultHint" class="panel-hint">Consigue puntos, vocales o premios especiales.</p>
           </div>
           <div class="used-wrap">
-            <p class="eyebrow">Letras usadas</p>
+            <p class="eyebrow">Usadas</p>
             <div id="usedLetters" class="used-letters">Ninguna</div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <section class="action-strip glass">
+        <div class="wheel-card">
+          <canvas id="wheel" width="420" height="420" aria-label="Ruleta"></canvas>
+          <button id="spinBtn" class="primary-btn">Girar</button>
+        </div>
+
+        <div class="control-card">
+          <div class="control-row">
+            <input id="letterInput" maxlength="1" placeholder="Letra" autocomplete="off" />
+            <button id="guessBtn" class="primary-btn">Probar</button>
+            <button id="solveBtn" class="ghost-btn">Resolver</button>
+          </div>
+          <div class="mini-rules">
+            <div class="rule-pill">💥 Quiebra</div>
+            <div class="rule-pill">⏭ Pierde turno</div>
+            <div class="rule-pill">🎯 Letras con premio</div>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 

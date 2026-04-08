@@ -207,4 +207,10 @@ letterInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') guessLetter();
 });
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+
 pickPuzzle();
