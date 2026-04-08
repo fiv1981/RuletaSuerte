@@ -250,6 +250,14 @@ function playResultBoom() {
   beep({ frequency: 150, slideTo: 90, duration: 0.16, type: 'sine', gain: 0.05 });
   setTimeout(() => beep({ frequency: 510, slideTo: 340, duration: 0.14, type: 'triangle', gain: 0.03 }), 60);
 }
+function playBankrupt() {
+  beep({ frequency: 210, duration: 0.1, type: 'sawtooth', gain: 0.03, slideTo: 150 });
+  setTimeout(() => beep({ frequency: 160, duration: 0.16, type: 'square', gain: 0.028, slideTo: 110 }), 80);
+}
+function playLoseTurn() {
+  beep({ frequency: 280, duration: 0.08, type: 'triangle', gain: 0.025, slideTo: 220 });
+  setTimeout(() => beep({ frequency: 190, duration: 0.12, type: 'triangle', gain: 0.022, slideTo: 140 }), 70);
+}
 function playSuccess() {
   beep({ frequency: 740, duration: 0.05, type: 'triangle', gain: 0.02, slideTo: 920 });
   setTimeout(() => beep({ frequency: 980, duration: 0.08, type: 'sine', gain: 0.025, slideTo: 1240 }), 75);
@@ -418,7 +426,7 @@ function resolveSpin() {
     resultLabel.textContent = '¡Quiebra!';
     resultHint.textContent = 'Pierdes los puntos y puedes volver a girar.';
     showResultSplash('QUIEBRA', seg);
-    playResultBoom();
+    playBankrupt();
   } else if (seg.value === 'lose') {
     state.lives = Math.max(0, state.lives - 1);
     state.currentPrize = 0;
@@ -426,7 +434,7 @@ function resolveSpin() {
     resultLabel.textContent = 'Pierdes turno';
     resultHint.textContent = 'Has perdido una vida. Vuelve a girar.';
     showResultSplash('PIERDE TURNO', seg);
-    playResultBoom();
+    playLoseTurn();
   } else {
     state.currentPrize = seg.value;
     state.wheelVisible = false;
