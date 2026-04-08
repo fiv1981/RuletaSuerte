@@ -283,19 +283,28 @@ function openWheel() {
 function spinWheel() {
   if (state.spinning) return;
   state.spinning = true;
-  const turns = 7 + Math.random() * 3;
-  const finalAngle = state.angle + turns * Math.PI * 2 + Math.random() * Math.PI * 2;
+  const slice = (Math.PI * 2) / segments.length;
+  const winningIndex = Math.floor(Math.random() * segments.length);
+  const segmentCenter = winningIndex * slice + slice / 2;
+  const targetNormalized = ((-Math.PI / 2) - segmentCenter + Math.PI * 2) % (Math.PI * 2);
+  const currentNormalized = ((state.angle % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+  const extraTurns = (7 + Math.floor(Math.random() * 3)) * Math.PI * 2;
+  const delta = (targetNormalized - currentNormalized + Math.PI * 2) % (Math.PI * 2);
+  const startAngle = state.angle;
+  const finalAngle = state.angle + extraTurns + delta;
+  state.pendingSegment = segments[winningIndex];
   const start = performance.now();
   const duration = 3400;
 
   function frame(now) {
     const t = Math.min(1, (now - start) / duration);
     const eased = 1 - Math.pow(1 - t, 4);
-    state.angle = state.angle + (finalAngle - state.angle) * eased;
+    state.angle = startAngle + (finalAngle - startAngle) * eased;
     drawWheel();
     if (t < 1) return requestAnimationFrame(frame);
-    state.angle = finalAngle % (Math.PI * 2);
+    state.angle = targetNormalized;
     state.spinning = false;
+    drawWheel();
     resolveSpin();
   }
 
@@ -303,10 +312,7 @@ function spinWheel() {
 }
 
 function resolveSpin() {
-  const slice = (Math.PI * 2) / segments.length;
-  const normalized = ((-state.angle - Math.PI / 2) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
-  const index = Math.round(normalized / slice) % segments.length;
-  const seg = segments[index];
+  const seg = state.pendingSegment || segments[0];
 
   if (seg.value === 'bankrupt') {
     state.score = 0;
@@ -328,6 +334,7 @@ function resolveSpin() {
     resultHint.textContent = 'Elige una letra en el teclado del juego.';
   }
 
+  state.pendingSegment = null;
   updateUI();
 }
 
