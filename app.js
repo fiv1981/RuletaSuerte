@@ -10,206 +10,210 @@ const segments = [
 ];
 
 const puzzles = [
-  { category: 'Películas', phrase: 'EL SECRETO DE SUS OJOS ABIERTOS' },
-  { category: 'Películas', phrase: 'LA VIDA ES BELLA CADA MANANA' },
-  { category: 'Películas', phrase: 'EL CLUB DE LOS POETAS MUERTOS' },
-  { category: 'Películas', phrase: 'REGRESO AL FUTURO PARTE DOS' },
-  { category: 'Películas', phrase: 'EN BUSCA DEL ARCA PERDIDA' },
-  { category: 'Películas', phrase: 'ATRAPAME SI PUEDES ESTA VEZ' },
-  { category: 'Películas', phrase: 'EL SILENCIO DE LOS CORDEROS' },
-  { category: 'Películas', phrase: 'LA LISTA DE SCHINDLER COMPLETA' },
-  { category: 'Películas', phrase: 'BAILANDO CON LOBOS TODA LA TARDE' },
-  { category: 'Películas', phrase: 'CADENA PERPETUA EN LA MONTAÑA' },
-  { category: 'Películas', phrase: 'EL NOMBRE DE LA ROSA ANTIGUA' },
-  { category: 'Películas', phrase: 'LA HISTORIA INTERMINABLE SIN FINAL' },
-  { category: 'Películas', phrase: 'PARQUE JURASICO BAJO LA LLUVIA' },
-  { category: 'Películas', phrase: 'EL REY LEON EN LA SABANA' },
-  { category: 'Películas', phrase: 'MISION IMPOSIBLE PROTOCOLO FANTASMA' },
-  { category: 'Películas', phrase: 'MARY POPPINS VUELVE A CASA' },
-  { category: 'Películas', phrase: 'CANTANDO BAJO LA LLUVIA FINA' },
-  { category: 'Películas', phrase: 'LOS CAZAFANTASMAS EN NUEVA YORK' },
-  { category: 'Películas', phrase: 'EL CASTILLO AMBULANTE EN LLAMAS' },
-  { category: 'Películas', phrase: 'LA PRINCESA PROMETIDA PARA SIEMPRE' },
-  { category: 'Películas', phrase: 'EL MAGO DE OZ Y SU CAMINO' },
-  { category: 'Películas', phrase: 'PIRATAS DEL CARIBE MAR ABIERTO' },
-  { category: 'Películas', phrase: 'EDUARDO MANOSTIJERAS EN INVIERNO' },
-  { category: 'Películas', phrase: 'LA BELLA Y LA BESTIA ENCANTADA' },
-  { category: 'Películas', phrase: 'BUSCANDO A NEMO BAJO EL MAR' },
-  { category: 'Películas', phrase: 'TOY STORY EN EL VIEJO DESVAN' },
-  { category: 'Películas', phrase: 'ALADDIN Y LA LAMPARA MAGICA' },
-  { category: 'Películas', phrase: 'MULAN EN EL CAMPO DE BATALLA' },
-  { category: 'Películas', phrase: 'HARRY POTTER Y EL CALIZ' },
-  { category: 'Películas', phrase: 'EL LABERINTO DEL FAUNO OSCURO' },
-  { category: 'Películas', phrase: 'CASABLANCA BAJO EL HUMO BLANCO' },
-  { category: 'Películas', phrase: 'DESAYUNO CON DIAMANTES AL AMANECER' },
-  { category: 'Películas', phrase: 'CINE PARADISO EN LA PLAZA' },
-  { category: 'Películas', phrase: 'LA GRAN EVASION BAJO TIERRA' },
-  { category: 'Películas', phrase: 'ROBIN HOOD PRINCIPE DE LADRONES' },
-  { category: 'Películas', phrase: 'UN PEZ LLAMADO WANDA EN LONDRES' },
-  { category: 'Películas', phrase: 'SINGIN IN THE RAIN BAJO FAROLES' },
-  { category: 'Películas', phrase: 'EL PADRINO EN LA SOMBRA' },
-  { category: 'Películas', phrase: 'UNA NOCHE EN LA OPERA ANTIGUA' },
-  { category: 'Películas', phrase: 'SONRISAS Y LAGRIMAS EN LA COLINA' },
-  { category: 'Series', phrase: 'LA CASA DE PAPEL EN MADRID' },
-  { category: 'Series', phrase: 'COMO CONOCI A VUESTRA MADRE' },
-  { category: 'Series', phrase: 'JUEGO DE TRONOS EN PONIENTE' },
-  { category: 'Series', phrase: 'LOS SIMPSON EN SPRINGFIELD' },
-  { category: 'Series', phrase: 'THE BIG BANG THEORY COMPLETA' },
-  { category: 'Series', phrase: 'A DOS METROS BAJO TIERRA' },
-  { category: 'Series', phrase: 'LA QUE SE AVECINA EN MONTEPINAR' },
-  { category: 'Series', phrase: 'COSAS MAS EXTRAÑAS EN HAWKINS' },
-  { category: 'Series', phrase: 'EL CUENTO DE LA CRIADA ROJA' },
-  { category: 'Series', phrase: 'MODERN FAMILY DE VIAJE JUNTOS' },
-  { category: 'Series', phrase: 'FRIENDS EN EL CENTRAL PERK' },
-  { category: 'Series', phrase: 'ANATOMIA DE GREY EN SEATTLE' },
-  { category: 'Series', phrase: 'PERDIDOS EN UNA ISLA REMOTA' },
-  { category: 'Series', phrase: 'BREAKING BAD EN EL DESIERTO' },
-  { category: 'Series', phrase: 'BETTER CALL SAUL EN ALBUQUERQUE' },
-  { category: 'Series', phrase: 'HOUSE M D EN EL HOSPITAL' },
-  { category: 'Series', phrase: 'EL PRINCIPE DE BEL AIR' },
-  { category: 'Series', phrase: 'COMISARIO MONTALBANO FRENTE AL MAR' },
-  { category: 'Series', phrase: 'PEAKY BLINDERS EN BIRMINGHAM' },
-  { category: 'Series', phrase: 'LOS BRIDGERTON EN EL BAILE' },
-  { category: 'Series', phrase: 'OUTLANDER ENTRE DOS SIGLOS' },
-  { category: 'Series', phrase: 'VIKINGOS HACIA TIERRAS LEJANAS' },
-  { category: 'Series', phrase: 'NARCOS EN LA CIUDAD AMURALLADA' },
-  { category: 'Series', phrase: 'THE CROWN DENTRO DEL PALACIO' },
-  { category: 'Series', phrase: 'MACHOS ALFA EN MADRID CENTRO' },
-  { category: 'Series', phrase: 'TED LASSO EN RICHMOND PARK' },
-  { category: 'Series', phrase: 'SEPARATION EN LA OFICINA BLANCA' },
-  { category: 'Series', phrase: 'TRUE DETECTIVE ENTRE PANTANOS' },
-  { category: 'Series', phrase: 'THE OFFICE EN SCRANTON SIEMPRE' },
+  { category: 'Peliculas', phrase: 'OCHO APELLIDOS VASCOS' },
+  { category: 'Peliculas', phrase: 'AMANECE QUE NO ES POCO' },
+  { category: 'Peliculas', phrase: 'LA GRAN FAMILIA ESPANOLA' },
+  { category: 'Peliculas', phrase: 'EL VERDUGO DE LUIS GARCIA BERLANGA' },
+  { category: 'Peliculas', phrase: 'BIENVENIDO MISTER MARSHALL' },
+  { category: 'Peliculas', phrase: 'MUJERES AL BORDE DE UN ATAQUE DE NERVIOS' },
+  { category: 'Peliculas', phrase: 'EL DIA DE LA BESTIA' },
+  { category: 'Peliculas', phrase: 'TESIS DE ALEJANDRO AMENABAR' },
+  { category: 'Peliculas', phrase: 'ABRE LOS OJOS' },
+  { category: 'Peliculas', phrase: 'TODO SOBRE MI MADRE' },
+  { category: 'Peliculas', phrase: 'VOLVER DE PEDRO ALMODOVAR' },
+  { category: 'Peliculas', phrase: 'MAR ADENTRO CON JAVIER BARDEM' },
+  { category: 'Peliculas', phrase: 'LOS OTROS EN LA CASA' },
+  { category: 'Peliculas', phrase: 'CELDA 211' },
+  { category: 'Peliculas', phrase: 'CAMPEONES DE JAVIER FESSER' },
+  { category: 'Peliculas', phrase: 'EL ORFANATO DE JUAN ANTONIO BAYONA' },
+  { category: 'Peliculas', phrase: 'UN MONSTRUO VIENE A VERME' },
+  { category: 'Peliculas', phrase: 'LA LENGUA DE LAS MARIPOSAS' },
+  { category: 'Peliculas', phrase: 'EL BOSQUE ANIMADO' },
+  { category: 'Peliculas', phrase: 'LAS TRECE ROSAS' },
+  { category: 'Peliculas', phrase: 'EL LABERINTO DEL FAUNO' },
+  { category: 'Peliculas', phrase: 'TORRENTE EL BRAZO TONTO DE LA LEY' },
+  { category: 'Peliculas', phrase: 'AIRBAG DE JUANMA BAJO ULLOA' },
+  { category: 'Peliculas', phrase: 'LAS BRUJAS DE ZUGARRAMURDI' },
+  { category: 'Peliculas', phrase: 'LA COMUNIDAD EN EL EDIFICIO' },
+  { category: 'Peliculas', phrase: 'REC EN EL RELLANO' },
+  { category: 'Peliculas', phrase: 'EL REINO DE RODRIGO SOROGOYEN' },
+  { category: 'Peliculas', phrase: 'AS BESTAS EN LA ALDEA' },
+  { category: 'Peliculas', phrase: 'LA ISLA MINIMA' },
+  { category: 'Peliculas', phrase: 'PALMERAS EN LA NIEVE' },
+  { category: 'Peliculas', phrase: 'PRIMOS DE DANIEL SANCHEZ AREVALO' },
+  { category: 'Peliculas', phrase: 'EL VIAJE A NINGUNA PARTE' },
+  { category: 'Peliculas', phrase: 'PERFECTOS DESCONOCIDOS EN LA CENA' },
+  { category: 'Peliculas', phrase: 'EL BUEN PATRON' },
+  { category: 'Peliculas', phrase: 'LA TRINCHERA INFINITA' },
+  { category: 'Peliculas', phrase: 'VERANO MIL NOVECIENTOS NOVENTA Y TRES' },
+  { category: 'Peliculas', phrase: 'SIETE APELLIDOS CATALANES' },
+  { category: 'Peliculas', phrase: 'TODOS LO SABEN' },
+  { category: 'Peliculas', phrase: 'LA NOVIA DE PAULA ORTIZ' },
+  { category: 'Peliculas', phrase: 'EL BOLA' },
+
+  { category: 'Series', phrase: 'AQUI NO HAY QUIEN VIVA' },
+  { category: 'Series', phrase: 'LA QUE SE AVECINA' },
+  { category: 'Series', phrase: 'CUENTAME COMO PASO' },
   { category: 'Series', phrase: 'EL MINISTERIO DEL TIEMPO' },
-  { category: 'Series', phrase: 'THE MANDALORIAN EN LA GALAXIA' },
-  { category: 'Series', phrase: 'WEDNESDAY EN LA ACADEMIA' },
-  { category: 'Series', phrase: 'COBRA KAI EN EL DOJO' },
-  { category: 'Series', phrase: 'STRANGER THINGS EN HALLOWEEN' },
-  { category: 'Series', phrase: 'LOS SOPRANO EN NUEVA JERSEY' },
-  { category: 'Series', phrase: 'SUCCESSION EN LA TORRE ALTA' },
-  { category: 'Series', phrase: 'BLACK MIRROR FRENTE A PANTALLAS' },
-  { category: 'Series', phrase: 'SHERLOCK EN BAKER STREET' },
-  { category: 'Series', phrase: 'DOWNTON ABBEY EN LA CAMPINA' },
   { category: 'Series', phrase: 'LOS HOMBRES DE PACO' },
-  { category: 'Música', phrase: 'LA CHICA DE AYER EN MI BARRIO' },
-  { category: 'Música', phrase: 'VIVIR ASI ES MORIR DE AMOR' },
-  { category: 'Música', phrase: 'DEVUELVEME A MI CHICA AHORA' },
-  { category: 'Música', phrase: 'BOHEMIAN RHAPSODY EN DIRECTO' },
-  { category: 'Música', phrase: 'ENTRE DOS TIERRAS Y VIENTO' },
-  { category: 'Música', phrase: 'WE WILL ROCK YOU SIN DESCANSO' },
-  { category: 'Música', phrase: 'CORAZON PARTIO BAJO LA LLUVIA' },
-  { category: 'Música', phrase: 'MEDITERRANEO AL ATARDECER' },
-  { category: 'Música', phrase: 'NO PUEDO VIVIR SIN TI' },
-  { category: 'Música', phrase: 'BESO LENTO BAJO LAS ESTRELLAS' },
-  { category: 'Música', phrase: 'BAILANDO EN LA COCINA VACIA' },
-  { category: 'Música', phrase: 'HEROES DEL SILENCIO EN DIRECTO' },
-  { category: 'Música', phrase: 'BONITA COMO UNA ROSA BLANCA' },
-  { category: 'Música', phrase: 'ZAPATOS NUEVOS SOBRE EL ASFALTO' },
-  { category: 'Música', phrase: 'QUIERO TENER TU PRESENCIA CERCA' },
-  { category: 'Música', phrase: 'LA FUERZA DEL DESTINO LLAMA' },
-  { category: 'Música', phrase: 'ES POR TI TODA LA VIDA' },
-  { category: 'Música', phrase: 'COLOR ESPERANZA PARA MANANA' },
-  { category: 'Música', phrase: 'MI GRAN NOCHE EN LA RADIO' },
-  { category: 'Música', phrase: 'CAMINANDO POR LA VIDA DESPACIO' },
-  { category: 'Música', phrase: 'VUELVE PRONTO ANTES DEL ALBA' },
-  { category: 'Música', phrase: 'TE DEJO MADRID POR UN TIEMPO' },
-  { category: 'Música', phrase: 'Y NOS DIERON LAS DIEZ' },
-  { category: 'Música', phrase: 'QUE NADIE SEPA MI SUFRIR' },
-  { category: 'Música', phrase: 'MALDITA PRIMAVERA EN ABRIL' },
-  { category: 'Música', phrase: 'COSTUMBRES ARGENTINAS DE BARRIO' },
-  { category: 'Música', phrase: 'LAGRIMAS NEGRAS JUNTO AL RIO' },
-  { category: 'Música', phrase: '20 DE ABRIL DEL NOVENTA' },
-  { category: 'Música', phrase: 'Y COMO ES EL POR DENTRO' },
-  { category: 'Música', phrase: 'LA FLACA CRUZA LA PLAZA' },
-  { category: 'Música', phrase: 'EN ALGUN LUGAR MUY LEJANO' },
-  { category: 'Música', phrase: 'RAYANDO EL SOL EN AGOSTO' },
-  { category: 'Música', phrase: 'CLAVADO EN UN BAR VACIO' },
-  { category: 'Música', phrase: 'DE MUSICA LIGERA EN VIVO' },
-  { category: 'Música', phrase: 'PONGAMOS QUE HABLO DE MADRID' },
-  { category: 'Música', phrase: 'HABLANDO A TU CORAZON ABIERTO' },
-  { category: 'Música', phrase: 'PARA NO VERTE MAS NUNCA' },
-  { category: 'Música', phrase: 'DURMIENDO SOLA A ORILLAS DEL MAR' },
-  { category: 'Música', phrase: 'LA BILIRRUBINA SIGUE SUBIENDO' },
-  { category: 'Música', phrase: 'MI AGUA SALADA SABE A SUR' },
-  { category: 'Lugares', phrase: 'PLAZA MAYOR DE MADRID AL ANOCHECER' },
-  { category: 'Lugares', phrase: 'GRAN VIA DE MADRID ILUMINADA' },
-  { category: 'Lugares', phrase: 'ALHAMBRA DE GRANADA EN PRIMAVERA' },
-  { category: 'Lugares', phrase: 'PARQUE NACIONAL DE ORDESA NEVADO' },
-  { category: 'Lugares', phrase: 'PUENTE DE BROOKLYN AL AMANECER' },
-  { category: 'Lugares', phrase: 'MUSEO DEL PRADO EN SILENCIO' },
-  { category: 'Lugares', phrase: 'CENTRAL PARK EN OTONO DORADO' },
-  { category: 'Lugares', phrase: 'MURALLA CHINA ENTRE MONTAÑAS' },
-  { category: 'Lugares', phrase: 'MONTE FUJI TRAS LAS NUBES' },
-  { category: 'Lugares', phrase: 'TORRE EIFFEL BRILLANDO DE NOCHE' },
-  { category: 'Lugares', phrase: 'PLAYA DE LA CONCHA EN CALMA' },
-  { category: 'Lugares', phrase: 'TEATRO ROMANO DE MERIDA' },
-  { category: 'Lugares', phrase: 'ACUEDUCTO DE SEGOVIA EN PIEDRA' },
-  { category: 'Lugares', phrase: 'CATEDRAL DE SANTIAGO AL FONDO' },
-  { category: 'Lugares', phrase: 'VALLE DEL JERTE EN FLOR' },
-  { category: 'Lugares', phrase: 'PLAZA DE ESPANA EN SEVILLA' },
-  { category: 'Lugares', phrase: 'RIO DUERO ENTRE VINEDOS' },
-  { category: 'Lugares', phrase: 'COSTA BRAVA SOBRE EL MEDITERRANEO' },
-  { category: 'Lugares', phrase: 'LAGO DI COMO AL ATARDECER' },
-  { category: 'Lugares', phrase: 'COLISEO ROMANO BAJO EL SOL' },
-  { category: 'Lugares', phrase: 'MACHU PICCHU ENTRE LA NIEBLA' },
-  { category: 'Lugares', phrase: 'ISLA DE SANTORINI EN BLANCO' },
-  { category: 'Lugares', phrase: 'TIMES SQUARE LLENA DE LUCES' },
-  { category: 'Lugares', phrase: 'PUERTA DE ALCALA EN MADRID' },
-  { category: 'Lugares', phrase: 'PALACIO REAL DE ARANJUEZ' },
-  { category: 'Lugares', phrase: 'CALA MACARELLA AGUA TURQUESA' },
-  { category: 'Lugares', phrase: 'SIERRA NEVADA CUBIERTA DE NIEVE' },
-  { category: 'Lugares', phrase: 'PARQUE GUELL SOBRE BARCELONA' },
-  { category: 'Lugares', phrase: 'BOSQUE DE IRATI EN OTONO' },
-  { category: 'Lugares', phrase: 'PICOS DE EUROPA ENTRE NUBES' },
-  { category: 'Lugares', phrase: 'RIO SENA BAJO LOS PUENTES' },
-  { category: 'Lugares', phrase: 'CINQUE TERRE FRENTE AL MAR' },
-  { category: 'Lugares', phrase: 'PLAZA SAN MARCOS DE VENECIA' },
-  { category: 'Lugares', phrase: 'MUSEO GUGGENHEIM DE BILBAO' },
-  { category: 'Lugares', phrase: 'MONASTERIO DE PIEDRA Y CASCADAS' },
-  { category: 'Lugares', phrase: 'CAMPANARIO DE PISA INCLINADO' },
-  { category: 'Lugares', phrase: 'VALLE SAGRADO DE LOS INCAS' },
-  { category: 'Lugares', phrase: 'PASEO DE RECOLETOS EN OTONO' },
-  { category: 'Lugares', phrase: 'TEMPLO DE DEBOD AL ATARDECER' },
-  { category: 'Lugares', phrase: 'TORRES DEL PAINE EN SILENCIO' },
-  { category: 'Expresiones', phrase: 'A QUIEN MADRUGA DIOS LE AYUDA' },
-  { category: 'Expresiones', phrase: 'MAS VALE TARDE QUE NUNCA' },
-  { category: 'Expresiones', phrase: 'AL MAL TIEMPO BUENA CARA' },
-  { category: 'Expresiones', phrase: 'NO HAY MAL QUE POR BIEN NO VENGA' },
-  { category: 'Expresiones', phrase: 'MUCHO RUIDO Y POCAS NUECES' },
-  { category: 'Expresiones', phrase: 'A PALABRAS NECIAS OIDOS SORDOS' },
-  { category: 'Expresiones', phrase: 'EL HABITO NO HACE AL MONJE' },
-  { category: 'Expresiones', phrase: 'CUANDO EL RIO SUENA AGUA LLEVA' },
-  { category: 'Expresiones', phrase: 'NUNCA ES TARDE SI LA DICHA ES BUENA' },
-  { category: 'Expresiones', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO' },
-  { category: 'Expresiones', phrase: 'NO DEJES PARA MANANA LO DE HOY' },
-  { category: 'Expresiones', phrase: 'AL QUE MADRUGA TODO LE LLEGA' },
-  { category: 'Expresiones', phrase: 'QUIEN TIENE UN AMIGO TIENE UN TESORO' },
-  { category: 'Expresiones', phrase: 'DEL DICHO AL HECHO HAY TRECHO' },
-  { category: 'Expresiones', phrase: 'EL QUE LA SIGUE LA CONSIGUE' },
-  { category: 'Expresiones', phrase: 'A CABALLO REGALADO NO LE MIRES EL DIENTE' },
-  { category: 'Expresiones', phrase: 'DIME CON QUIEN ANDAS Y TE DIRE QUIEN ERES' },
-  { category: 'Expresiones', phrase: 'NO TODO LO QUE BRILLA ES ORO' },
-  { category: 'Expresiones', phrase: 'ZAPATERO A TUS ZAPATOS SIEMPRE' },
-  { category: 'Expresiones', phrase: 'METERSE EN CAMISA DE ONCE VARAS' },
-  { category: 'Expresiones', phrase: 'EN BOCA CERRADA NO ENTRAN MOSCAS' },
-  { category: 'Expresiones', phrase: 'QUIEN MUCHO ABARCA POCO APRIETA' },
-  { category: 'Expresiones', phrase: 'OJOS QUE NO VEN CORAZON QUE NO SIENTE' },
-  { category: 'Expresiones', phrase: 'EL MUNDO ES UN PANUELO PEQUENO' },
-  { category: 'Expresiones', phrase: 'A BUEN HAMBRE NO HAY MAL PAN' },
-  { category: 'Expresiones', phrase: 'CONTIGO PAN Y CEBOLLA SIEMPRE' },
-  { category: 'Expresiones', phrase: 'NO SE GANO ZAMORA EN UNA HORA' },
-  { category: 'Expresiones', phrase: 'DE TAL PALO TAL ASTILLA' },
-  { category: 'Expresiones', phrase: 'EL SABER NO OCUPA LUGAR' },
-  { category: 'Expresiones', phrase: 'HABLAR POR LOS CODOS SIN PARAR' },
-  { category: 'Expresiones', phrase: 'SER UÑA Y CARNE TODA LA VIDA' },
-  { category: 'Expresiones', phrase: 'QUEDARSE EN BLANCO ANTE TODOS' },
-  { category: 'Expresiones', phrase: 'TENER LA SARTEN POR EL MANGO' },
-  { category: 'Expresiones', phrase: 'IRSE POR LAS RAMAS DEMASIADO' },
-  { category: 'Expresiones', phrase: 'ESTAR ENTRE LA ESPADA Y LA PARED' },
-  { category: 'Expresiones', phrase: 'TENER POCAS LUCES ESTA TARDE' },
-  { category: 'Expresiones', phrase: 'ESTAR EN LAS NUBES TODO EL DIA' },
-  { category: 'Expresiones', phrase: 'LLAMAR AL PAN PAN Y AL VINO VINO' },
-  { category: 'Expresiones', phrase: 'PONERSE LAS PILAS DESDE TEMPRANO' },
-  { category: 'Expresiones', phrase: 'SACAR LAS CASTANAS DEL FUEGO' }
+  { category: 'Series', phrase: 'MEDICO DE FAMILIA' },
+  { category: 'Series', phrase: 'COMPANEROS DE CLASE' },
+  { category: 'Series', phrase: 'UN PASO ADELANTE' },
+  { category: 'Series', phrase: 'LOS SERRANO EN SANTA JUSTA' },
+  { category: 'Series', phrase: 'VERANO AZUL EN NERJA' },
+  { category: 'Series', phrase: 'FARMACIA DE GUARDIA' },
+  { category: 'Series', phrase: 'PERIODISTAS EN LA REDACCION' },
+  { category: 'Series', phrase: 'CAMARA CAFE EN LA OFICINA' },
+  { category: 'Series', phrase: 'AIDA EN ESPERANZA SUR' },
+  { category: 'Series', phrase: 'EL COMISARIO' },
+  { category: 'Series', phrase: 'HOSPITAL CENTRAL DE MADRID' },
+  { category: 'Series', phrase: 'MACHOS ALFA EN LA CAPITAL' },
+  { category: 'Series', phrase: 'PAQUITA SALAS REPRESENTANTE DE ACTORES' },
+  { category: 'Series', phrase: 'LAS CHICAS DEL CABLE' },
+  { category: 'Series', phrase: 'VALERIA EN LA GRAN VIA' },
+  { category: 'Series', phrase: 'LA CASA DE PAPEL' },
+  { category: 'Series', phrase: 'VIS A VIS EN CRUZ DEL SUR' },
+  { category: 'Series', phrase: 'MERLI SAPERE AUDE' },
+  { category: 'Series', phrase: 'FISICA O QUIMICA EN ZURBARAN' },
+  { category: 'Series', phrase: 'EL INTERNADO LAS CUMBRES' },
+  { category: 'Series', phrase: 'LOS PROTEGIDOS EN FAMILIA' },
+  { category: 'Series', phrase: 'GRAN HOTEL' },
+  { category: 'Series', phrase: 'ISABEL REINA DE CASTILLA' },
+  { category: 'Series', phrase: 'REYES DE LA NOCHE' },
+  { category: 'Series', phrase: 'EL PUEBLO' },
+  { category: 'Series', phrase: 'ALLI ABAJO ENTRE SEVILLA Y DONOSTIA' },
+  { category: 'Series', phrase: 'EL VECINO DE LAVAPIES' },
+  { category: 'Series', phrase: 'CUERPO DE ELITE' },
+  { category: 'Series', phrase: 'SIN TETAS NO HAY PARAISO' },
+  { category: 'Series', phrase: 'LOS FAVORITOS DE MIDAS' },
+  { category: 'Series', phrase: '7 VIDAS EN EL BARRIO' },
+  { category: 'Series', phrase: 'EL CASO CRONICA DE SUCESOS' },
+  { category: 'Series', phrase: 'LA CHICA DE NIEVE' },
+  { category: 'Series', phrase: 'ENTREVIAS EN EL BARRIO' },
+  { category: 'Series', phrase: 'BY ANA MILAN' },
+
+  { category: 'Musica', phrase: 'LA CHICA DE AYER' },
+  { category: 'Musica', phrase: 'DEVUELVEME A MI CHICA' },
+  { category: 'Musica', phrase: 'VIVIR ASI ES MORIR DE AMOR' },
+  { category: 'Musica', phrase: 'MEDITERRANEO DE JOAN MANUEL SERRAT' },
+  { category: 'Musica', phrase: 'PONGAMOS QUE HABLO DE MADRID' },
+  { category: 'Musica', phrase: 'Y NOS DIERON LAS DIEZ' },
+  { category: 'Musica', phrase: 'PRINCESA DE JOAQUIN SABINA' },
+  { category: 'Musica', phrase: 'PECES DE CIUDAD' },
+  { category: 'Musica', phrase: 'A QUIEN LE IMPORTA' },
+  { category: 'Musica', phrase: 'BAILANDO' },
+  { category: 'Musica', phrase: 'ENTRE DOS TIERRAS' },
+  { category: 'Musica', phrase: 'MALDITO DUENDE' },
+  { category: 'Musica', phrase: 'LA FUERZA DEL DESTINO' },
+  { category: 'Musica', phrase: 'MAQUILLAJE' },
+  { category: 'Musica', phrase: 'UN ANO MAS EN LA PUERTA DEL SOL' },
+  { category: 'Musica', phrase: 'ES POR TI' },
+  { category: 'Musica', phrase: 'CAMINANDO POR LA VIDA' },
+  { category: 'Musica', phrase: 'NO PUEDO VIVIR SIN TI' },
+  { category: 'Musica', phrase: 'CORAZON PARTIO' },
+  { category: 'Musica', phrase: 'AMIGA MIA DE ALEJANDRO SANZ' },
+  { category: 'Musica', phrase: 'LA FLACA' },
+  { category: 'Musica', phrase: 'DEPENDE DE JARABE DE PALO' },
+  { category: 'Musica', phrase: 'BONITO TODO ME PARECE BONITO' },
+  { category: 'Musica', phrase: 'POR LA RAJA DE TU FALDA' },
+  { category: 'Musica', phrase: 'COMO CAMARON' },
+  { category: 'Musica', phrase: 'ANTES DE QUE CUENTE DIEZ' },
+  { category: 'Musica', phrase: 'VEINTE DE ABRIL DEL NOVENTA' },
+  { category: 'Musica', phrase: 'CUENTAME AL OIDO' },
+  { category: 'Musica', phrase: 'SOY UN TRUHAN SOY UN SENOR' },
+  { category: 'Musica', phrase: 'ME VA ME VA' },
+  { category: 'Musica', phrase: 'INSURRECCION DE EL ULTIMO DE LA FILA' },
+  { category: 'Musica', phrase: 'MI GRAN NOCHE' },
+  { category: 'Musica', phrase: 'LIBRE DE NINO BRAVO' },
+  { category: 'Musica', phrase: 'UN BESO Y UNA FLOR' },
+  { category: 'Musica', phrase: 'SUFRE MAMON' },
+  { category: 'Musica', phrase: 'EN ALGUN LUGAR' },
+  { category: 'Musica', phrase: 'MALAMENTE DE ROSALIA' },
+  { category: 'Musica', phrase: 'MALO MALO MALO ERES' },
+  { category: 'Musica', phrase: 'DOLCE VITA' },
+  { category: 'Musica', phrase: 'LO HICIMOS BIEN' },
+
+  { category: 'Comidas', phrase: 'TORTILLA DE PATATAS CON CEBOLLA' },
+  { category: 'Comidas', phrase: 'BOCADILLO DE CALAMARES EN LA PLAZA MAYOR' },
+  { category: 'Comidas', phrase: 'PAELLA VALENCIANA DEL DOMINGO' },
+  { category: 'Comidas', phrase: 'CROQUETAS CASERAS DE JAMON' },
+  { category: 'Comidas', phrase: 'PATATAS BRAVAS CON SU SALSA' },
+  { category: 'Comidas', phrase: 'GAZPACHO FRESQUITO EN VERANO' },
+  { category: 'Comidas', phrase: 'SALMOREJO CON HUEVO Y JAMON' },
+  { category: 'Comidas', phrase: 'PULPO A LA GALLEGA' },
+  { category: 'Comidas', phrase: 'CHURROS CON CHOCOLATE PARA MERENDAR' },
+  { category: 'Comidas', phrase: 'LENTEJAS DE LA ABUELA' },
+  { category: 'Comidas', phrase: 'COCIDO MADRILENO DE LOS TRES VUELCOS' },
+  { category: 'Comidas', phrase: 'FABADA ASTURIANA CON COMPANGO' },
+  { category: 'Comidas', phrase: 'MIGAS CON UVAS EN EL PUEBLO' },
+  { category: 'Comidas', phrase: 'CALLOS A LA MADRILENA' },
+  { category: 'Comidas', phrase: 'TORRIJAS DE SEMANA SANTA' },
+  { category: 'Comidas', phrase: 'ARROZ NEGRO CON ALIOLI' },
+  { category: 'Comidas', phrase: 'MERLUZA A LA ROMANA' },
+  { category: 'Comidas', phrase: 'PIMIENTOS DE PADRON' },
+  { category: 'Comidas', phrase: 'ENSALADILLA RUSA DE BAR DE BARRIO' },
+  { category: 'Comidas', phrase: 'PINCHO DE TORTILLA RECIEN HECHO' },
+  { category: 'Comidas', phrase: 'JAMON IBERICO CORTADO A CUCHILLO' },
+  { category: 'Comidas', phrase: 'QUESO MANCHEGO CON PAN CRUJIENTE' },
+  { category: 'Comidas', phrase: 'HORCHATA CON FARTONS' },
+  { category: 'Comidas', phrase: 'TOSTADA CON TOMATE Y ACEITE' },
+  { category: 'Comidas', phrase: 'SEPIA A LA PLANCHA' },
+  { category: 'Comidas', phrase: 'CALAMARES A LA ANDALUZA' },
+  { category: 'Comidas', phrase: 'ALBONDIGAS EN SALSA' },
+  { category: 'Comidas', phrase: 'FLAN DE HUEVO CASERO' },
+  { category: 'Comidas', phrase: 'ARROZ CON LECHE DE LA YAYA' },
+  { category: 'Comidas', phrase: 'EMPANADA GALLEGA DE ATUN' },
+  { category: 'Comidas', phrase: 'PAN CON TOMATE Y JAMON' },
+  { category: 'Comidas', phrase: 'TARTA DE SANTIAGO' },
+  { category: 'Comidas', phrase: 'PESCADITO FRITO EN EL CHIRINGUITO' },
+  { category: 'Comidas', phrase: 'RABO DE TORO CORDOBES' },
+  { category: 'Comidas', phrase: 'BACALAO AL PIL PIL' },
+  { category: 'Comidas', phrase: 'SARDINAS A LA BRASA EN SAN JUAN' },
+  { category: 'Comidas', phrase: 'BUNUELOS DE VIENTO RECIEN HECHOS' },
+  { category: 'Comidas', phrase: 'TURRON DE JIJONA EN NAVIDAD' },
+  { category: 'Comidas', phrase: 'ROSCON DE REYES CON NATA' },
+  { category: 'Comidas', phrase: 'LECHE FRITA CON CANELA' },
+
+  { category: 'Lugares y refranes', phrase: 'A QUIEN MADRUGA DIOS LE AYUDA' },
+  { category: 'Lugares y refranes', phrase: 'MAS VALE TARDE QUE NUNCA' },
+  { category: 'Lugares y refranes', phrase: 'AL MAL TIEMPO BUENA CARA' },
+  { category: 'Lugares y refranes', phrase: 'NO HAY MAL QUE POR BIEN NO VENGA' },
+  { category: 'Lugares y refranes', phrase: 'EN ABRIL AGUAS MIL' },
+  { category: 'Lugares y refranes', phrase: 'DE TAL PALO TAL ASTILLA' },
+  { category: 'Lugares y refranes', phrase: 'NADIE DA DUROS A PESETA' },
+  { category: 'Lugares y refranes', phrase: 'A BUEN HAMBRE NO HAY MAL PAN' },
+  { category: 'Lugares y refranes', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO' },
+  { category: 'Lugares y refranes', phrase: 'QUIEN MUCHO ABARCA POCO APRIETA' },
+  { category: 'Lugares y refranes', phrase: 'NO SE GANO ZAMORA EN UNA HORA' },
+  { category: 'Lugares y refranes', phrase: 'DIME CON QUIEN ANDAS Y TE DIRE QUIEN ERES' },
+  { category: 'Lugares y refranes', phrase: 'DEL DICHO AL HECHO HAY MUCHO TRECHO' },
+  { category: 'Lugares y refranes', phrase: 'A PALABRAS NECIAS OIDOS SORDOS' },
+  { category: 'Lugares y refranes', phrase: 'EL HABITO NO HACE AL MONJE' },
+  { category: 'Lugares y refranes', phrase: 'OJOS QUE NO VEN CORAZON QUE NO SIENTE' },
+  { category: 'Lugares y refranes', phrase: 'CONTIGO PAN Y CEBOLLA' },
+  { category: 'Lugares y refranes', phrase: 'EL QUE LA SIGUE LA CONSIGUE' },
+  { category: 'Lugares y refranes', phrase: 'METERSE EN CAMISA DE ONCE VARAS' },
+  { category: 'Lugares y refranes', phrase: 'ZAPATERO A TUS ZAPATOS' },
+  { category: 'Lugares y refranes', phrase: 'PLAZA MAYOR DE SALAMANCA AL ATARDECER' },
+  { category: 'Lugares y refranes', phrase: 'LA GRAN VIA LLENA DE GENTE' },
+  { category: 'Lugares y refranes', phrase: 'LA CONCHA DE SAN SEBASTIAN' },
+  { category: 'Lugares y refranes', phrase: 'LA MEZQUITA DE CORDOBA' },
+  { category: 'Lugares y refranes', phrase: 'LA ALHAMBRA DE GRANADA' },
+  { category: 'Lugares y refranes', phrase: 'LA SAGRADA FAMILIA EN BARCELONA' },
+  { category: 'Lugares y refranes', phrase: 'LA CATEDRAL DE SANTIAGO DE COMPOSTELA' },
+  { category: 'Lugares y refranes', phrase: 'EL ACUEDUCTO DE SEGOVIA' },
+  { category: 'Lugares y refranes', phrase: 'LA PLAZA DE ESPANA DE SEVILLA' },
+  { category: 'Lugares y refranes', phrase: 'EL TEATRO ROMANO DE MERIDA' },
+  { category: 'Lugares y refranes', phrase: 'LAS CASAS COLGADAS DE CUENCA' },
+  { category: 'Lugares y refranes', phrase: 'LA CIUDAD DE LAS ARTES Y LAS CIENCIAS' },
+  { category: 'Lugares y refranes', phrase: 'LAS MEDULAS EN OTONO' },
+  { category: 'Lugares y refranes', phrase: 'EL CAMINO DE SANTIAGO EN SEPTIEMBRE' },
+  { category: 'Lugares y refranes', phrase: 'LA PUERTA DEL SOL EN NOCHEVIEJA' },
+  { category: 'Lugares y refranes', phrase: 'EL TEMPLO DE DEBOD AL ATARDECER' },
+  { category: 'Lugares y refranes', phrase: 'LA SIERRA DE GREDOS NEVADA' },
+  { category: 'Lugares y refranes', phrase: 'EL CABO DE GATA FRENTE AL MAR' },
+  { category: 'Lugares y refranes', phrase: 'RONDA ASOMADA AL TAJO' },
+  { category: 'Lugares y refranes', phrase: 'EL GUGGENHEIM DE BILBAO' }
 ];
 
 const state = {
@@ -262,223 +266,265 @@ function chunkPhrase(phrase, maxCharsPerLine = 16) {
   return lines;
 }
 
+function normalize(str) {
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^A-Z0-9 ]/g, '')
+    .toUpperCase();
+}
+
 function pickPuzzle() {
-  state.puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
-  state.used = new Set([' ']);
-  state.score = 0;
-  state.lives = 3;
+  if (state.used.size === puzzles.length) state.used.clear();
+  let index;
+  do {
+    index = Math.floor(Math.random() * puzzles.length);
+  } while (state.used.has(index));
+  state.used.add(index);
+  const base = puzzles[index];
+  state.puzzle = {
+    category: base.category,
+    phrase: normalize(base.phrase),
+    guessed: new Set()
+  };
   state.currentPrize = 0;
   state.solved = false;
-  state.wheelVisible = false;
-  state.keyboardVisible = false;
-  resultLabel.textContent = 'Pulsa Girar para comenzar';
-  resultHint.textContent = 'Gira la ruleta, elige letra desde el teclado del juego y resuelve el panel.';
-  updateUI();
+  resultLabel.textContent = 'Gira la ruleta';
+  resultHint.textContent = 'Acierta consonantes y resuelve la frase';
+  phraseCategory.textContent = base.category;
+  usedLetters.textContent = 'Letras usadas: -';
+  renderBoard();
+  renderKeyboard();
+}
+
+function renderBoard() {
+  phraseBoard.innerHTML = '';
+  const lines = chunkPhrase(state.puzzle.phrase);
+  lines.forEach(line => {
+    const row = document.createElement('div');
+    row.className = 'phrase-row';
+    [...line].forEach(char => {
+      const cell = document.createElement('div');
+      cell.className = 'letter-box';
+      if (char === ' ') {
+        cell.classList.add('space');
+        cell.textContent = '';
+      } else if (/[0-9]/.test(char) || state.puzzle.guessed.has(char)) {
+        cell.textContent = char;
+        cell.classList.add('revealed');
+      } else {
+        cell.textContent = '';
+      }
+      row.appendChild(cell);
+    });
+    phraseBoard.appendChild(row);
+  });
 }
 
 function drawWheel() {
-  const { width, height } = canvas;
-  const cx = width / 2;
-  const cy = height / 2;
-  const radius = 170;
-  const slice = (Math.PI * 2) / segments.length;
-  ctx.clearRect(0, 0, width, height);
+  const radius = canvas.width / 2;
+  const cx = radius;
+  const cy = radius;
+  const arc = (Math.PI * 2) / segments.length;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.save();
   ctx.translate(cx, cy);
-  ctx.rotate(state.angle);
+  ctx.rotate((state.angle * Math.PI) / 180);
 
-  segments.forEach((seg, i) => {
-    const start = i * slice;
-    const end = start + slice;
+  segments.forEach((segment, index) => {
+    const start = index * arc;
+    const end = start + arc;
+
     ctx.beginPath();
     ctx.moveTo(0, 0);
-    ctx.arc(0, 0, radius, start, end);
+    ctx.arc(0, 0, radius - 10, start, end);
     ctx.closePath();
-    ctx.fillStyle = seg.color;
+    ctx.fillStyle = segment.color;
     ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,.26)';
-    ctx.stroke();
+
     ctx.save();
-    ctx.rotate(start + slice / 2);
-    ctx.fillStyle = '#fff';
-    ctx.font = '700 20px Inter';
+    ctx.rotate(start + arc / 2);
     ctx.textAlign = 'right';
-    ctx.fillText(seg.label, radius - 14, 8);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 20px system-ui';
+    ctx.fillText(segment.label, radius - 30, 8);
     ctx.restore();
   });
 
   ctx.restore();
+
   ctx.beginPath();
-  ctx.moveTo(cx, cy - radius - 18);
-  ctx.lineTo(cx - 20, cy - radius - 54);
-  ctx.lineTo(cx + 20, cy - radius - 54);
-  ctx.closePath();
-  ctx.fillStyle = '#fff';
+  ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+  ctx.fillStyle = '#0f172a';
   ctx.fill();
 }
 
-function updateUI() {
+function updateHud() {
   scoreValue.textContent = state.score;
-  lifeValue.textContent = state.lives;
-  phraseCategory.textContent = state.puzzle.category;
-  phraseBoard.innerHTML = '';
-
-  const lines = chunkPhrase(state.puzzle.phrase, window.innerHeight < 700 ? 16 : 20);
-  lines.forEach((line) => {
-    const row = document.createElement('div');
-    row.className = 'phrase-row';
-    [...line].forEach((char) => {
-      const tile = document.createElement('div');
-      tile.className = `tile${char === ' ' ? ' space' : ''}`;
-      tile.textContent = char === ' ' ? '' : (state.used.has(char) ? char : '');
-      row.appendChild(tile);
-    });
-    phraseBoard.appendChild(row);
-  });
-
-  usedLetters.textContent = [...state.used].filter((l) => l !== ' ').sort().join(', ') || 'Ninguna';
-  wheelModal.classList.toggle('visible', state.wheelVisible);
-  keyboardModal.classList.toggle('visible', state.keyboardVisible);
-  drawWheel();
-  renderKeyboard();
-}
-
-function renderKeyboard() {
-  const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
-  keyboardGrid.innerHTML = letters.map((letter) => `
-    <button class="key-btn" data-letter="${letter}" ${state.used.has(letter) || !state.currentPrize || state.solved ? 'disabled' : ''}>${letter}</button>
-  `).join('');
-  keyboardGrid.querySelectorAll('[data-letter]').forEach((btn) => {
-    btn.addEventListener('click', () => pickLetter(btn.dataset.letter));
-  });
+  lifeValue.textContent = '❤'.repeat(state.lives);
 }
 
 function openWheel() {
-  if (state.spinning || state.solved) return;
   state.wheelVisible = true;
+  wheelModal.classList.remove('hidden');
+}
+
+function closeWheel() {
+  state.wheelVisible = false;
+  wheelModal.classList.add('hidden');
+}
+
+function openKeyboard() {
+  state.keyboardVisible = true;
+  keyboardModal.classList.remove('hidden');
+}
+
+function closeKeyboard() {
   state.keyboardVisible = false;
-  updateUI();
+  keyboardModal.classList.add('hidden');
 }
 
 function spinWheel() {
-  if (state.spinning) return;
+  if (state.spinning || state.solved) return;
   state.spinning = true;
-  const turns = 7 + Math.random() * 3;
-  const finalAngle = state.angle + turns * Math.PI * 2 + Math.random() * Math.PI * 2;
-  const start = performance.now();
-  const duration = 3400;
+  const turns = 1800 + Math.random() * 1800;
+  state.angle += turns;
+  canvas.style.transition = 'transform 4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+  canvas.style.transform = `rotate(${state.angle}deg)`;
 
-  function frame(now) {
-    const t = Math.min(1, (now - start) / duration);
-    const eased = 1 - Math.pow(1 - t, 4);
-    state.angle = state.angle + (finalAngle - state.angle) * eased;
-    drawWheel();
-    if (t < 1) return requestAnimationFrame(frame);
-    state.angle = finalAngle % (Math.PI * 2);
+  setTimeout(() => {
     state.spinning = false;
-    resolveSpin();
-  }
-
-  requestAnimationFrame(frame);
+    const normalized = ((360 - (state.angle % 360)) + 22.5) % 360;
+    const index = Math.floor(normalized / 45) % segments.length;
+    const prize = segments[index];
+    handlePrize(prize);
+  }, 4000);
 }
 
-function resolveSpin() {
-  const slice = (Math.PI * 2) / segments.length;
-  const normalized = ((-state.angle - Math.PI / 2) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
-  const index = Math.round(normalized / slice) % segments.length;
-  const seg = segments[index];
-
-  if (seg.value === 'bankrupt') {
+function handlePrize(prize) {
+  if (prize.value === 'bankrupt') {
     state.score = 0;
     state.currentPrize = 0;
-    state.wheelVisible = false;
-    resultLabel.textContent = '¡Quiebra!';
-    resultHint.textContent = 'Pierdes los puntos y puedes volver a girar.';
-  } else if (seg.value === 'lose') {
-    state.lives = Math.max(0, state.lives - 1);
+    resultLabel.textContent = 'Quiebra';
+    resultHint.textContent = 'Pierdes todos los puntos';
+    updateHud();
+    closeWheel();
+    return;
+  }
+
+  if (prize.value === 'lose') {
     state.currentPrize = 0;
-    state.wheelVisible = false;
+    state.lives = Math.max(0, state.lives - 1);
     resultLabel.textContent = 'Pierdes turno';
-    resultHint.textContent = 'Has perdido una vida. Vuelve a girar.';
-  } else {
-    state.currentPrize = seg.value;
-    state.wheelVisible = false;
-    state.keyboardVisible = true;
-    resultLabel.textContent = `${seg.label} por acierto`;
-    resultHint.textContent = 'Elige una letra en el teclado del juego.';
+    resultHint.textContent = 'Te quedas sin intento';
+    updateHud();
+    closeWheel();
+    if (state.lives === 0) gameOver(false);
+    return;
   }
 
-  updateUI();
+  state.currentPrize = prize.value;
+  resultLabel.textContent = `${prize.label} puntos por consonante`;
+  resultHint.textContent = 'Elige una letra';
+  updateHud();
+  closeWheel();
+  openKeyboard();
 }
 
-function pickLetter(letter) {
-  if (!state.currentPrize || state.used.has(letter) || state.solved) return;
-  state.keyboardVisible = false;
-  state.used.add(letter);
-  const count = [...state.puzzle.phrase].filter((c) => c === letter).length;
-
-  if (count) {
-    state.score += count * state.currentPrize;
-    resultLabel.textContent = `¡${count} ${count === 1 ? 'letra' : 'letras'}!`;
-    resultHint.textContent = `Sumas ${count * state.currentPrize} puntos. Puedes volver a girar.`;
-  } else {
-    state.lives = Math.max(0, state.lives - 1);
-    resultLabel.textContent = 'No aparece';
-    resultHint.textContent = 'La letra no está. Pierdes una vida.';
-  }
-
-  state.currentPrize = 0;
-  state.solved = [...state.puzzle.phrase].every((c) => c === ' ' || state.used.has(c));
-  if (state.solved) {
-    resultLabel.textContent = '¡Panel resuelto!';
-    resultHint.textContent = `Puntuación final: ${state.score}`;
-  }
-
-  updateUI();
-}
-
-function solvePuzzle() {
-  if (state.solved) return;
-  const answer = prompt('Escribe la solución completa:');
-  if (!answer) return;
-  if (answer.trim().toUpperCase() === state.puzzle.phrase) {
-    [...state.puzzle.phrase].forEach((c) => state.used.add(c));
-    state.solved = true;
-    resultLabel.textContent = '¡Correcto!';
-    resultHint.textContent = `Has resuelto el panel con ${state.score} puntos.`;
-  } else {
-    state.lives = Math.max(0, state.lives - 1);
-    resultLabel.textContent = 'No es correcto';
-    resultHint.textContent = 'Pierdes una vida y puedes seguir jugando.';
-  }
-  updateUI();
-}
-
-document.getElementById('spinBtn').addEventListener('click', openWheel);
-document.getElementById('wheelSpinBtn').addEventListener('click', spinWheel);
-document.getElementById('solveBtn').addEventListener('click', solvePuzzle);
-document.getElementById('openKeyboardBtn').addEventListener('click', () => {
-  if (state.solved) return;
-  state.keyboardVisible = true;
-  state.wheelVisible = false;
-  updateUI();
-});
-document.getElementById('resetBtn').addEventListener('click', pickPuzzle);
-document.getElementById('closeWheelBtn').addEventListener('click', () => {
-  if (state.spinning) return;
-  state.wheelVisible = false;
-  updateUI();
-});
-document.getElementById('closeKeyboardBtn').addEventListener('click', () => {
-  state.keyboardVisible = false;
-  updateUI();
-});
-window.addEventListener('resize', updateUI);
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
+function renderKeyboard() {
+  keyboardGrid.innerHTML = '';
+  const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
+  letters.forEach(letter => {
+    const btn = document.createElement('button');
+    btn.className = 'key';
+    btn.textContent = letter;
+    btn.disabled = state.puzzle?.guessed.has(letter);
+    btn.addEventListener('click', () => guessLetter(letter));
+    keyboardGrid.appendChild(btn);
   });
 }
 
+function guessLetter(letter) {
+  if (!state.puzzle || state.solved) return;
+  state.puzzle.guessed.add(letter);
+  const phrase = state.puzzle.phrase;
+  const matches = [...phrase].filter(char => char === letter).length;
+
+  if (matches > 0) {
+    state.score += matches * state.currentPrize;
+    resultLabel.textContent = `La letra ${letter} aparece ${matches} veces`;
+    resultHint.textContent = 'Puedes resolver o seguir jugando';
+  } else {
+    state.lives = Math.max(0, state.lives - 1);
+    resultLabel.textContent = `La letra ${letter} no esta`;
+    resultHint.textContent = 'Vuelve a girar la ruleta';
+  }
+
+  usedLetters.textContent = `Letras usadas: ${[...state.puzzle.guessed].join(', ')}`;
+  renderBoard();
+  renderKeyboard();
+  updateHud();
+  closeKeyboard();
+
+  if (isSolved()) {
+    gameOver(true);
+  } else if (state.lives === 0) {
+    gameOver(false);
+  }
+}
+
+function isSolved() {
+  return [...state.puzzle.phrase].every(char => char === ' ' || /[0-9]/.test(char) || state.puzzle.guessed.has(char));
+}
+
+function solveAttempt() {
+  const answer = prompt('Escribe la frase completa');
+  if (!answer) return;
+  if (normalize(answer) === state.puzzle.phrase) {
+    [...state.puzzle.phrase].forEach(char => {
+      if (char !== ' ') state.puzzle.guessed.add(char);
+    });
+    renderBoard();
+    gameOver(true);
+  } else {
+    state.lives = Math.max(0, state.lives - 1);
+    resultLabel.textContent = 'No es correcto';
+    resultHint.textContent = 'Pierdes una vida';
+    updateHud();
+    if (state.lives === 0) gameOver(false);
+  }
+}
+
+function gameOver(win) {
+  state.solved = true;
+  closeWheel();
+  closeKeyboard();
+  if (win) {
+    resultLabel.textContent = 'Has resuelto la frase';
+    resultHint.textContent = 'Pulsa nueva ronda para seguir';
+  } else {
+    [...state.puzzle.phrase].forEach(char => {
+      if (char !== ' ') state.puzzle.guessed.add(char);
+    });
+    renderBoard();
+    resultLabel.textContent = 'Fin de la partida';
+    resultHint.textContent = `La frase era: ${state.puzzle.phrase}`;
+  }
+}
+
+document.getElementById('spinButton').addEventListener('click', () => {
+  openWheel();
+  spinWheel();
+});
+
+document.getElementById('solveButton').addEventListener('click', solveAttempt);
+document.getElementById('nextButton').addEventListener('click', () => {
+  state.lives = 3;
+  pickPuzzle();
+  updateHud();
+});
+
+drawWheel();
 pickPuzzle();
+updateHud();
