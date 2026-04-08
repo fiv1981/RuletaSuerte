@@ -167,10 +167,13 @@ h1 {
 
 .phrase-board {
   min-height: 0;
+  width: 100%;
   display: grid;
+  justify-items: center;
   align-content: center;
   gap: 10px;
-  padding: 10px;
+  padding: 10px 6px;
+  overflow: hidden;
   border-radius: 18px;
   background: rgba(255,255,255,0.04);
 }
@@ -178,20 +181,23 @@ h1 {
 .phrase-row {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: nowrap;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .tile,
 .letter-box {
-  min-width: clamp(26px, 2.8vw, 40px);
+  width: clamp(18px, 2.55vw, 40px);
+  min-width: 0;
   height: clamp(34px, 5vh, 48px);
   border-radius: 12px;
   display: grid;
   place-items: center;
   background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
   border: 1px solid rgba(255,255,255,0.08);
-  font-size: clamp(.92rem, 1.45vw, 1.25rem);
+  font-size: clamp(.78rem, 1.35vw, 1.25rem);
   font-weight: 800;
 }
 
@@ -471,13 +477,13 @@ canvas {
     justify-items: center;
     align-content: center;
     overflow: hidden;
-    padding: 8px 4px;
+    padding: 8px 2px;
   }
 
   .phrase-row {
     width: auto;
     max-width: 100%;
-    gap: 3px;
+    gap: 2px;
     justify-content: center;
     margin-inline: auto;
     flex-wrap: nowrap;
@@ -485,9 +491,10 @@ canvas {
 
   .tile,
   .letter-box {
-    min-width: clamp(18px, 6vw, 30px);
-    height: clamp(24px, 6vw, 34px);
-    font-size: clamp(.7rem, 3vw, .92rem);
+    width: clamp(14px, 5.3vw, 26px);
+    min-width: 0;
+    height: clamp(22px, 6vw, 34px);
+    font-size: clamp(.62rem, 2.8vw, .9rem);
   }
 
   .keyboard-grid {
