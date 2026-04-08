@@ -247,7 +247,7 @@ function updateUI() {
   phraseBoard.innerHTML = '';
 
   const isPortrait = window.innerHeight > window.innerWidth;
-  const lines = chunkPhrase(state.puzzle.phrase, isPortrait ? 12 : window.innerHeight < 700 ? 16 : 20);
+  const lines = chunkPhrase(state.puzzle.phrase, isPortrait ? 9 : window.innerHeight < 700 ? 16 : 20);
   lines.forEach((line) => {
     const row = document.createElement('div');
     row.className = 'phrase-row';
