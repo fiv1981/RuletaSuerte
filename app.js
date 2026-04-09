@@ -12,10 +12,10 @@ const segments = [
 const puzzles = [
   { category: 'Platos tipicos', phrase: 'TORTILLA DE PATATAS' },
   { category: 'Platos tipicos', phrase: 'PAELLA VALENCIANA' },
-  { category: 'Platos tipicos', phrase: 'COCIDO MADRILENO' },
+  { category: 'Platos tipicos', phrase: 'COCIDO MADRILEÑO' },
   { category: 'Platos tipicos', phrase: 'GAZPACHO ANDALUZ' },
-  { category: 'Platos tipicos', phrase: 'SALMOREJO CORDOBES' },
-  { category: 'Platos tipicos', phrase: 'MIGAS EXTREMENAS' },
+  { category: 'Platos tipicos', phrase: 'SALMOREJO CORDOBÉS' },
+  { category: 'Platos tipicos', phrase: 'MIGAS EXTREMEÑAS' },
   { category: 'Platos tipicos', phrase: 'PULPO A LA GALLEGA' },
   { category: 'Platos tipicos', phrase: 'PATATAS BRAVAS' },
   { category: 'Platos tipicos', phrase: 'CROQUETAS CASERAS' },
@@ -99,7 +99,7 @@ const puzzles = [
   { category: 'Refranes', phrase: 'A PALABRAS NECIAS OIDOS SORDOS' },
   { category: 'Refranes', phrase: 'EN CASA DEL HERRERO CUCHILLO DE PALO' },
   { category: 'Refranes', phrase: 'EL HABITO NO HACE AL MONJE' },
-  { category: 'Refranes', phrase: 'NO DEJES PARA MANANA LO QUE PUEDAS HACER HOY' },
+  { category: 'Refranes', phrase: 'NO DEJES PARA MAÑANA LO QUE PUEDAS HACER HOY' },
   { category: 'Refranes', phrase: 'QUIEN MUCHO ABARCA POCO APRIETA' },
   { category: 'Refranes', phrase: 'OJOS QUE NO VEN CORAZON QUE NO SIENTE' },
   { category: 'Refranes', phrase: 'A CABALLO REGALADO NO LE MIRES EL DIENTE' },
@@ -127,7 +127,7 @@ const puzzles = [
   { category: 'Monumentos y lugares', phrase: 'VALLE DEL JERTE' },
   { category: 'Monumentos y lugares', phrase: 'PICOS DE EUROPA' },
   { category: 'Monumentos y lugares', phrase: 'ISLAS CIES' },
-  { category: 'Monumentos y lugares', phrase: 'PLAZA DE ESPANA DE SEVILLA' },
+  { category: 'Monumentos y lugares', phrase: 'PLAZA DE ESPAÑA DE SEVILLA' },
   { category: 'Monumentos y lugares', phrase: 'REAL ALCAZAR DE SEVILLA' },
   { category: 'Monumentos y lugares', phrase: 'CAMINO DE SANTIAGO' }
 ];
