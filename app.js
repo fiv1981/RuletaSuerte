@@ -159,7 +159,9 @@ const keyboardGrid = document.getElementById('keyboardGrid');
 const resultSplash = document.getElementById('resultSplash');
 const resultSplashShape = document.getElementById('resultSplashShape');
 const resultSplashText = document.getElementById('resultSplashText');
-const victorySplash = document.getElementById('victorySplash');
+const finishModal = document.getElementById('finishModal');
+const finishIcon = document.getElementById('finishIcon');
+const finishTitle = document.getElementById('finishTitle');
 let audioCtx;
 let spinNodes = null;
 
@@ -263,9 +265,14 @@ function playSuccess() {
   beep({ frequency: 740, duration: 0.05, type: 'triangle', gain: 0.02, slideTo: 920 });
   setTimeout(() => beep({ frequency: 980, duration: 0.08, type: 'sine', gain: 0.025, slideTo: 1240 }), 75);
 }
-function showVictorySplash() {
-  victorySplash.classList.add('visible');
-  setTimeout(() => victorySplash.classList.remove('visible'), 950);
+function showFinishModal(type = 'victory') {
+  finishIcon.textContent = type === 'victory' ? '🏆' : '⛔';
+  finishTitle.textContent = type === 'victory' ? '¡RESUELTO!' : 'SIN VIDAS';
+  finishModal.classList.add('visible');
+}
+
+function closeFinishModal() {
+  finishModal.classList.remove('visible');
 }
 
 function playVictory() {
@@ -519,8 +526,13 @@ function pickLetter(letter) {
   if (state.solved) {
     resultLabel.textContent = '¡Panel resuelto!';
     resultHint.textContent = `Puntuación final: ${state.score}`;
-    showVictorySplash();
+    showFinishModal('victory');
     playVictory();
+  } else if (state.lives <= 0) {
+    resultLabel.textContent = 'Sin vidas';
+    resultHint.textContent = `Puntuación final: ${state.score}`;
+    showFinishModal('lose');
+    playError();
   }
 
   updateUI();
@@ -535,7 +547,7 @@ function solvePuzzle() {
     state.solved = true;
     resultLabel.textContent = '¡Correcto!';
     resultHint.textContent = `Has resuelto el panel con ${state.score} puntos.`;
-    showVictorySplash();
+    showFinishModal('victory');
     playVictory();
   } else {
     state.lives = Math.max(0, state.lives - 1);
@@ -569,6 +581,11 @@ document.getElementById('closeKeyboardBtn').addEventListener('click', () => {
   state.keyboardVisible = false;
   updateUI();
 });
+document.getElementById('playAgainBtn').addEventListener('click', () => {
+  closeFinishModal();
+  pickPuzzle();
+});
+document.getElementById('closeFinishBtn').addEventListener('click', closeFinishModal);
 window.addEventListener('resize', updateUI);
 
 if ('serviceWorker' in navigator) {

@@ -469,6 +469,13 @@ canvas {
   border-radius: 36px;
   background: radial-gradient(circle at top, #fde68a, #f59e0b 58%, #b45309 100%);
   box-shadow: 0 30px 70px rgba(0,0,0,.42);
+}
+
+.victory-splash__shape--panel {
+  width: min(88vw, 420px);
+  aspect-ratio: auto;
+  min-height: 320px;
+  padding: 28px 24px;
   animation: splash-pop 1s ease-out forwards;
 }
 
@@ -485,6 +492,14 @@ canvas {
   letter-spacing: .08em;
   text-align: center;
   text-shadow: 0 6px 18px rgba(0,0,0,.22);
+}
+
+.finish-actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
 }
 
 @keyframes splash-pop {
