@@ -375,7 +375,7 @@ canvas {
   inset: 0;
   display: none;
   place-items: center;
-  background: rgba(3, 7, 18, 0.2);
+  background: rgba(3, 7, 18, 0.62);
   z-index: 80;
   pointer-events: none;
 }
