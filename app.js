@@ -432,7 +432,7 @@ function renderKeyboard() {
 }
 
 function openWheel() {
-  if (state.spinning || state.solved) return;
+  if (state.spinning || state.solved || state.lives <= 0 || state.finishType) return;
   playClick();
   state.wheelVisible = true;
   state.keyboardVisible = false;
@@ -514,7 +514,7 @@ function resolveSpin() {
 }
 
 function pickLetter(letter) {
-  if (!state.currentPrize || state.used.has(letter) || state.solved) return;
+  if (!state.currentPrize || state.used.has(letter) || state.solved || state.lives <= 0 || state.finishType) return;
   state.keyboardVisible = false;
   state.used.add(letter);
   const count = [...state.puzzle.phrase].filter((c) => c === letter).length;
@@ -549,7 +549,7 @@ function pickLetter(letter) {
 }
 
 function solvePuzzle() {
-  if (state.solved) return;
+  if (state.solved || state.lives <= 0 || state.finishType) return;
   const answer = prompt('Escribe la solución completa:');
   if (!answer) return;
   if (answer.trim().toUpperCase() === state.puzzle.phrase) {
@@ -576,7 +576,7 @@ document.getElementById('solveBtn').addEventListener('click', () => {
 });
 document.getElementById('openKeyboardBtn').addEventListener('click', () => {
   playClick();
-  if (state.solved) return;
+  if (state.solved || state.lives <= 0 || state.finishType) return;
   state.keyboardVisible = true;
   state.wheelVisible = false;
   updateUI();
@@ -598,6 +598,7 @@ document.getElementById('playAgainBtn').addEventListener('click', () => {
     state.lives = 3;
     state.currentPrize = 0;
     state.solved = false;
+    state.finishType = null;
     resultLabel.textContent = 'Pulsa Girar para continuar';
     resultHint.textContent = 'Tienes otra oportunidad con el mismo panel.';
     updateUI();

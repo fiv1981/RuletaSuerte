@@ -382,6 +382,7 @@ canvas {
 
 .result-splash.visible {
   display: grid;
+  pointer-events: auto;
 }
 
 .result-splash__shape {
@@ -476,7 +477,6 @@ canvas {
   aspect-ratio: auto;
   min-height: 320px;
   padding: 28px 24px;
-  animation: splash-pop 1s ease-out forwards;
 }
 
 .victory-splash__icon {
