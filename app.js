@@ -272,6 +272,7 @@ function showFinishModal(type = 'victory') {
   state.finishType = type;
   document.getElementById('playAgainBtn').textContent = type === 'victory' ? 'Volver a jugar' : 'Volver a empezar';
   document.getElementById('closeFinishBtn').textContent = type === 'victory' ? 'Cerrar' : 'Reiniciar';
+  document.querySelector('.victory-splash__shape--panel').classList.toggle('is-lose', type === 'lose');
   finishModal.classList.add('visible');
 }
 
@@ -595,6 +596,7 @@ document.getElementById('playAgainBtn').addEventListener('click', () => {
   closeFinishModal();
   if (state.finishType === 'lose') {
     state.used = new Set([' ']);
+    state.score = 0;
     state.lives = 3;
     state.currentPrize = 0;
     state.solved = false;
@@ -604,6 +606,7 @@ document.getElementById('playAgainBtn').addEventListener('click', () => {
     updateUI();
     return;
   }
+  state.score = 0;
   pickPuzzle();
 });
 document.getElementById('closeFinishBtn').addEventListener('click', () => {

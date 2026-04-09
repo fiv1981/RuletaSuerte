@@ -479,8 +479,12 @@ canvas {
   padding: 28px 24px;
 }
 
+.victory-splash__shape--panel.is-lose {
+  background: radial-gradient(circle at top, #fecaca, #ef4444 58%, #991b1b 100%);
+}
+
 .victory-splash__icon {
-  font-size: clamp(3.4rem, 10vw, 6rem);
+  font-size: clamp(4.1rem, 11vw, 7rem);
   line-height: 1;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,.22));
 }
@@ -500,6 +504,15 @@ canvas {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-top: 8px;
+}
+
+.finish-actions .primary-btn,
+.finish-actions .ghost-btn {
+  min-height: 52px;
+  background: rgba(15, 23, 42, 0.82);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: none;
 }
 
 @keyframes splash-pop {
