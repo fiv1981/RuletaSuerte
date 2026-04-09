@@ -262,6 +262,12 @@ function playSuccess() {
   beep({ frequency: 740, duration: 0.05, type: 'triangle', gain: 0.02, slideTo: 920 });
   setTimeout(() => beep({ frequency: 980, duration: 0.08, type: 'sine', gain: 0.025, slideTo: 1240 }), 75);
 }
+function playVictory() {
+  beep({ frequency: 523, duration: 0.12, type: 'triangle', gain: 0.03, slideTo: 659 });
+  setTimeout(() => beep({ frequency: 659, duration: 0.12, type: 'triangle', gain: 0.032, slideTo: 784 }), 110);
+  setTimeout(() => beep({ frequency: 784, duration: 0.14, type: 'sine', gain: 0.035, slideTo: 1047 }), 230);
+  setTimeout(() => beep({ frequency: 1047, duration: 0.2, type: 'sine', gain: 0.04, slideTo: 1319 }), 380);
+}
 function playError() {
   beep({ frequency: 280, duration: 0.08, type: 'triangle', gain: 0.025, slideTo: 210 });
   setTimeout(() => beep({ frequency: 220, duration: 0.09, type: 'triangle', gain: 0.02, slideTo: 170 }), 70);
@@ -475,6 +481,7 @@ function pickLetter(letter) {
   if (state.solved) {
     resultLabel.textContent = '¡Panel resuelto!';
     resultHint.textContent = `Puntuación final: ${state.score}`;
+    playVictory();
   }
 
   updateUI();
@@ -489,7 +496,7 @@ function solvePuzzle() {
     state.solved = true;
     resultLabel.textContent = '¡Correcto!';
     resultHint.textContent = `Has resuelto el panel con ${state.score} puntos.`;
-    playSuccess();
+    playVictory();
   } else {
     state.lives = Math.max(0, state.lives - 1);
     resultLabel.textContent = 'No es correcto';
