@@ -366,7 +366,10 @@ function updateUI() {
 
 function renderKeyboard() {
   const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
-  const padded = [...letters, '', '', ''];
+  const columns = window.matchMedia('(max-height: 640px) and (orientation: landscape)').matches ? 9 : 7;
+  const remainder = letters.length % columns;
+  const fillerCount = remainder === 0 ? 0 : columns - remainder;
+  const padded = [...letters, ...Array.from({ length: fillerCount }, () => '')];
   keyboardGrid.innerHTML = padded.map((letter) => {
     if (!letter) return '<div class="key-pad" aria-hidden="true"></div>';
     const used = state.used.has(letter);
