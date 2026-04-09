@@ -268,7 +268,7 @@ function playSuccess() {
 }
 function showFinishModal(type = 'victory') {
   finishIcon.textContent = type === 'victory' ? '🏆' : '⛔';
-  finishTitle.textContent = type === 'victory' ? '¡RESUELTO!' : 'SIN VIDAS';
+  finishTitle.textContent = type === 'victory' ? '¡ENHORABUENA!' : '¡OH, OH! SIN VIDAS';
   state.finishType = type;
   document.getElementById('playAgainBtn').textContent = type === 'victory' ? 'Volver a jugar' : 'Volver a empezar';
   document.getElementById('closeFinishBtn').textContent = type === 'victory' ? 'Cerrar' : 'Reiniciar';
