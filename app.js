@@ -263,10 +263,36 @@ function playSuccess() {
   setTimeout(() => beep({ frequency: 980, duration: 0.08, type: 'sine', gain: 0.025, slideTo: 1240 }), 75);
 }
 function playVictory() {
-  beep({ frequency: 523, duration: 0.12, type: 'triangle', gain: 0.03, slideTo: 659 });
-  setTimeout(() => beep({ frequency: 659, duration: 0.12, type: 'triangle', gain: 0.032, slideTo: 784 }), 110);
-  setTimeout(() => beep({ frequency: 784, duration: 0.14, type: 'sine', gain: 0.035, slideTo: 1047 }), 230);
-  setTimeout(() => beep({ frequency: 1047, duration: 0.2, type: 'sine', gain: 0.04, slideTo: 1319 }), 380);
+  const ctx = getAudio();
+  const now = ctx.currentTime;
+  const notes = [523.25, 659.25, 783.99, 1046.5];
+  notes.forEach((note, index) => {
+    const osc = ctx.createOscillator();
+    const shimmer = ctx.createOscillator();
+    const shimmerGain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+    const amp = ctx.createGain();
+    const start = now + index * 0.12;
+    const end = start + 0.42;
+    osc.type = index < 2 ? 'triangle' : 'sine';
+    osc.frequency.setValueAtTime(note, start);
+    osc.frequency.linearRampToValueAtTime(note * 1.012, end);
+    shimmer.type = 'sine';
+    shimmer.frequency.setValueAtTime(5 + index, start);
+    shimmerGain.gain.setValueAtTime(8 + index * 2, start);
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(2200 + index * 400, start);
+    amp.gain.setValueAtTime(0.0001, start);
+    amp.gain.linearRampToValueAtTime(0.02 + index * 0.004, start + 0.04);
+    amp.gain.exponentialRampToValueAtTime(0.0001, end);
+    shimmer.connect(shimmerGain).connect(osc.frequency);
+    osc.connect(filter).connect(amp).connect(ctx.destination);
+    osc.start(start);
+    shimmer.start(start);
+    osc.stop(end);
+    shimmer.stop(end);
+  });
+  setTimeout(() => beep({ frequency: 1319, duration: 0.26, type: 'sine', gain: 0.045, slideTo: 1567 }), 470);
 }
 function playError() {
   beep({ frequency: 280, duration: 0.08, type: 'triangle', gain: 0.025, slideTo: 210 });
