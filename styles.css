@@ -389,6 +389,7 @@ canvas {
   aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
+  justify-items: center;
   clip-path: polygon(50% 0%, 61% 34%, 98% 35%, 68% 57%, 79% 91%, 50% 71%, 21% 91%, 32% 57%, 2% 35%, 39% 34%);
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.98), rgba(251, 113, 133, 0.98));
   box-shadow: 0 30px 70px rgba(0,0,0,.42);
@@ -429,9 +430,16 @@ canvas {
 }
 
 @media (orientation: landscape) {
+  .result-splash__shape {
+    padding-left: 18%;
+    padding-right: 18%;
+  }
+
   .result-splash__text {
     width: 56%;
     max-width: 56%;
+    margin: 0 auto;
+    transform: translateX(0);
     font-size: clamp(.92rem, 2.8vw, 2.2rem);
     white-space: nowrap;
     overflow-wrap: normal;
