@@ -142,7 +142,8 @@ const state = {
   spinning: false,
   wheelVisible: false,
   keyboardVisible: false,
-  solved: false
+  solved: false,
+  finishType: null
 };
 
 const canvas = document.getElementById('wheel');
@@ -268,6 +269,9 @@ function playSuccess() {
 function showFinishModal(type = 'victory') {
   finishIcon.textContent = type === 'victory' ? '🏆' : '⛔';
   finishTitle.textContent = type === 'victory' ? '¡RESUELTO!' : 'SIN VIDAS';
+  state.finishType = type;
+  document.getElementById('playAgainBtn').textContent = type === 'victory' ? 'Volver a jugar' : 'Volver a empezar';
+  document.getElementById('closeFinishBtn').textContent = type === 'victory' ? 'Cerrar' : 'Reiniciar';
   finishModal.classList.add('visible');
 }
 
@@ -329,6 +333,7 @@ function pickPuzzle() {
   state.lives = 3;
   state.currentPrize = 0;
   state.solved = false;
+  state.finishType = null;
   state.wheelVisible = false;
   state.keyboardVisible = false;
   resultLabel.textContent = 'Pulsa Girar para comenzar';
@@ -483,7 +488,7 @@ function resolveSpin() {
     state.currentPrize = 0;
     state.wheelVisible = false;
     resultLabel.textContent = 'Pierdes turno';
-    resultHint.textContent = 'Has perdido una vida. Vuelve a girar.';
+    resultHint.textContent = 'Has perdido una vida.';
     showResultSplash('PIERDE TURNO', seg);
     playLoseTurn();
   } else {
@@ -501,6 +506,11 @@ function resolveSpin() {
 
   state.pendingSegment = null;
   updateUI();
+  if (state.lives <= 0 && !state.solved) {
+    resultLabel.textContent = 'Sin vidas';
+    resultHint.textContent = `Puntuación final: ${state.score}`;
+    showFinishModal('lose');
+  }
 }
 
 function pickLetter(letter) {
@@ -583,9 +593,24 @@ document.getElementById('closeKeyboardBtn').addEventListener('click', () => {
 });
 document.getElementById('playAgainBtn').addEventListener('click', () => {
   closeFinishModal();
+  if (state.finishType === 'lose') {
+    state.used = new Set([' ']);
+    state.lives = 3;
+    state.currentPrize = 0;
+    state.solved = false;
+    resultLabel.textContent = 'Pulsa Girar para continuar';
+    resultHint.textContent = 'Tienes otra oportunidad con el mismo panel.';
+    updateUI();
+    return;
+  }
   pickPuzzle();
 });
-document.getElementById('closeFinishBtn').addEventListener('click', closeFinishModal);
+document.getElementById('closeFinishBtn').addEventListener('click', () => {
+  closeFinishModal();
+  if (state.finishType === 'lose') {
+    pickPuzzle();
+  }
+});
 window.addEventListener('resize', updateUI);
 
 if ('serviceWorker' in navigator) {
