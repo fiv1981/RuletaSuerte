@@ -159,6 +159,7 @@ const keyboardGrid = document.getElementById('keyboardGrid');
 const resultSplash = document.getElementById('resultSplash');
 const resultSplashShape = document.getElementById('resultSplashShape');
 const resultSplashText = document.getElementById('resultSplashText');
+const victorySplash = document.getElementById('victorySplash');
 let audioCtx;
 let spinNodes = null;
 
@@ -262,6 +263,11 @@ function playSuccess() {
   beep({ frequency: 740, duration: 0.05, type: 'triangle', gain: 0.02, slideTo: 920 });
   setTimeout(() => beep({ frequency: 980, duration: 0.08, type: 'sine', gain: 0.025, slideTo: 1240 }), 75);
 }
+function showVictorySplash() {
+  victorySplash.classList.add('visible');
+  setTimeout(() => victorySplash.classList.remove('visible'), 950);
+}
+
 function playVictory() {
   const ctx = getAudio();
   const now = ctx.currentTime;
@@ -513,6 +519,7 @@ function pickLetter(letter) {
   if (state.solved) {
     resultLabel.textContent = '¡Panel resuelto!';
     resultHint.textContent = `Puntuación final: ${state.score}`;
+    showVictorySplash();
     playVictory();
   }
 
@@ -528,6 +535,7 @@ function solvePuzzle() {
     state.solved = true;
     resultLabel.textContent = '¡Correcto!';
     resultHint.textContent = `Has resuelto el panel con ${state.score} puntos.`;
+    showVictorySplash();
     playVictory();
   } else {
     state.lives = Math.max(0, state.lives - 1);
