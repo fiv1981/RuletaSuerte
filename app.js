@@ -366,7 +366,9 @@ function updateUI() {
 
 function renderKeyboard() {
   const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
-  const columns = window.matchMedia('(max-height: 640px) and (orientation: landscape)').matches ? 9 : 7;
+  const isSmallLandscape = window.matchMedia('(max-height: 640px) and (orientation: landscape)').matches;
+  const isPortraitMobile = window.matchMedia('(max-width: 900px)').matches;
+  const columns = isSmallLandscape ? 9 : isPortraitMobile ? 6 : 7;
   const remainder = letters.length % columns;
   const fillerCount = remainder === 0 ? 0 : columns - remainder;
   const padded = [...letters, ...Array.from({ length: fillerCount }, () => '')];
