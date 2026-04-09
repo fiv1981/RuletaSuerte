@@ -369,7 +369,7 @@ function renderKeyboard() {
   const isLandscape = window.matchMedia('(orientation: landscape)').matches;
   const isSmallLandscape = isLandscape && window.innerHeight <= 640;
   const isPortraitMobile = !isLandscape && window.innerWidth <= 900;
-  const columns = isSmallLandscape ? 9 : isPortraitMobile ? 6 : 7;
+  const columns = isSmallLandscape ? 7 : isPortraitMobile ? 6 : 7;
   const remainder = letters.length % columns;
   const fillerCount = remainder === 0 ? 0 : columns - remainder;
   const padded = [...letters, ...Array.from({ length: fillerCount }, () => '')];
